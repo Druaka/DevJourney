@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    color: #333;
+}
+
+.app-header {
+    background-color: #007acc;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.app-header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: bold;
+}
+
+.app-header nav a.active {
+    text-decoration: underline;
+}
+
+.app-main {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    min-height: 70vh; /* keeps content area consistent */
+}
+
+.app-footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #eee;
+    color: #666;
+}
