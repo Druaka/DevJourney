@@ -1,4 +1,6 @@
-Welcome to the work-work wiki!
+[![Deploy](https://img.shields.io/github/deployments/Druaka/DevJourney/github-pages?label=github%20pages)](https://druaka.github.io/DevJourney/)
+
+Welcome to my DevJourney.
 
 Up2
 
