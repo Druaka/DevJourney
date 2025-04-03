@@ -9,6 +9,6 @@ import { RouterOutlet, RouterModule, RouterLink, RouterLinkActive } from '@angul
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'DevJourney';
+  title = 'devjourney';
   currentYear: number = new Date().getFullYear();
 }

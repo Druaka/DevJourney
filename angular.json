@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "DevJourney": {
+    "devjourney": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -30,7 +30,7 @@
               "src/styles.css"
             ],
             "scripts": [],
-            "baseHref": "/DevJourney/"
+            "baseHref": "/devjourney/"
           },
           "configurations": {
             "production": {
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "DevJourney:build:production"
+              "buildTarget": "devjourney:build:production"
             },
             "development": {
-              "buildTarget": "DevJourney:build:development"
+              "buildTarget": "devjourney:build:development"
             }
           },
           "defaultConfiguration": "development"
