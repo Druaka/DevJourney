@@ -21,9 +21,11 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
+        working-directory: frontend
         run: npm ci
 
       - name: Deploy to GitHub Pages
+        working-directory: frontend
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
