@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PingService } from '@app/services/ping.service';
+import { environment } from '@env/environment';
 
 @Component({
   standalone: true,
@@ -9,6 +10,7 @@ import { PingService } from '@app/services/ping.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
+  backendApiUrl: string = `${environment.apiUrl}/ping`;
   backendMessage: string = 'Loading...';
 
   constructor(private pingService: PingService) {}
