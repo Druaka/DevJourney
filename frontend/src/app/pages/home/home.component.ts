@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { PingService } from '@app/services/ping.service';
 import { environment } from '@env/environment';
 
 @Component({
-  standalone: true,
   selector: 'app-home',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   backendApiUrl: string = `${environment.apiUrl}/ping`;
