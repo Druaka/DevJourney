@@ -6,16 +6,16 @@ Click the badge below to visit the live GitHub Pages site:
 
 [![GitHub Page](https://img.shields.io/github/deployments/Druaka/devjourney/github-pages?label=GitHub%20Page)](https://druaka.github.io/devjourney/)
 
-![Stars](https://img.shields.io/github/stars/Druaka/devjourney?style=social&label=Stars)
-![Contributors](https://img.shields.io/github/contributors/Druaka/devjourney?label=Contributors)
-![License](https://img.shields.io/github/license/Druaka/devjourney?label=License)
+<img src="https://img.shields.io/github/stars/Druaka/devjourney?style=social&label=Stars" alt="Stars">
+<img src="https://img.shields.io/github/contributors/Druaka/devjourney?label=Contributors" alt="Contributors">
+<img src="https://img.shields.io/github/license/Druaka/devjourney?label=License" alt="License">
 
 ---
 
 ## ✅ Project Status
 
-![Build Status](https://img.shields.io/github/actions/workflow/status/Druaka/devjourney/deploy-frontend.yml?branch=main&label=Build%20Status)
-![Last Commit](https://img.shields.io/github/last-commit/Druaka/devjourney?label=Last%20Commit)
+<img src="https://img.shields.io/github/actions/workflow/status/Druaka/devjourney/deploy-frontend.yml?branch=main&label=Build%20Status" alt="Build Status">
+<img src="https://img.shields.io/github/last-commit/Druaka/devjourney?label=Last%20Commit" alt="Last Commit">
 
 This is an actively developing monorepo project with a live frontend, connected backend, and clean CI/CD.
 
