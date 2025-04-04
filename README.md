@@ -4,11 +4,18 @@
 Welcome to my DevJourney — a personal learning tracker and development playground.  
 Click the badge below to visit the live GitHub Pages site:
 
-[![Deploy](https://img.shields.io/github/deployments/Druaka/devjourney/github-pages?label=github%20pages)](https://druaka.github.io/devjourney/)
+[![GitHub Page](https://img.shields.io/github/deployments/Druaka/devjourney/github-pages?label=GitHub%20Page)](https://druaka.github.io/devjourney/)
+
+![Stars](https://img.shields.io/github/stars/Druaka/devjourney?style=social&label=Stars)
+![Contributors](https://img.shields.io/github/contributors/Druaka/devjourney?label=Contributors)
+![License](https://img.shields.io/github/license/Druaka/devjourney?label=License)
 
 ---
 
 ## ✅ Project Status
+
+![Build Status](https://img.shields.io/github/actions/workflow/status/Druaka/devjourney/deploy-frontend.yml?branch=main&label=Build%20Status)
+![Last Commit](https://img.shields.io/github/last-commit/Druaka/devjourney?label=Last%20Commit)
 
 This is an actively developing monorepo project with a live frontend, connected backend, and clean CI/CD.
 
@@ -70,6 +77,15 @@ Backend runs on http://localhost:8080
 - Build out journal entry system (frontend + backend + DB)
 - Add PostgreSQL integration on backend
 - Optionally deploy backend to Fly.io
+
+---
+
+## 🤝 Connect with Me
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/johan-van-wyk-0/)
+[![Twitch](https://img.shields.io/badge/Twitch-%239146FF.svg?style=for-the-badge&logo=Twitch&logoColor=white)](https://www.twitch.tv/druakah)
+[![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://www.youtube.com/@druakah)
+[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)](https://x.com/JohanvanWyk3525)
 
 ---
 
