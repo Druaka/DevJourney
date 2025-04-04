@@ -9,7 +9,7 @@ app.use(express.json());
 
 // Simple test route
 app.get('/api/ping', (req, res) => {
-    res.json({ message: 'pong from backend' });
+    res.json({ message: 'Pong from backend' });
 });
 
 app.listen(port, () => {
