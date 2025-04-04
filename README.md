@@ -21,14 +21,12 @@ This is an actively developing monorepo project with a live frontend, connected 
 
 ### What’s been accomplished so far:
 
+- ✅ Clean monorepo structure with shared scripts and npm orchestration
 - ✅ Angular frontend hosted on GitHub Pages
 - ✅ Node.js + Express backend deployed to Render
-- ✅ Frontend and backend communicate via public API
-- ✅ Environment-aware service calls with provideHttpClient (Angular 18)
-- ✅ Ping service integrated and visible on homepage
+- ✅ Seamless frontend-backend integration with environment-aware service calls using provideHttpClient (Angular 18)
 - ✅ GitHub Actions deploy workflow for Angular
-- ✅ Clean monorepo structure with shared scripts and npm orchestration
-- ✅ Working favicon and visual polish started
+- ✅ Render auto-deploys backend on Git push to `devjourney/backend`
 
 ---
 
