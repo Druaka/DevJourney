@@ -7,7 +7,7 @@ import { environment } from '@env/environment';
   selector: 'app-home',
   imports: [],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
   backendApiUrl: string = `${environment.apiUrl}/ping`;

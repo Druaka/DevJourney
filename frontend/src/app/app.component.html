@@ -1,13 +1,14 @@
 <header class="app-header">
-    <h1>devjourney</h1>
-    <nav>
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-        <a routerLink="/journal" routerLinkActive="active">Journal</a>
+    <h1 class="app-header__title">devjourney</h1>
+    <nav class="app-header__nav">
+        <a class="app-header__nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a class="app-header__nav-link" routerLink="/journal" routerLinkActive="active">Journal</a>
     </nav>
 </header>
 
 <main class="app-main">
     <router-outlet></router-outlet>
+    <app-button-demo></app-button-demo>
 </main>
 
 <footer class="app-footer">
