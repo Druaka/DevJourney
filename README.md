@@ -1,4 +1,3 @@
-
 # 🧑‍💻 DevJourney
 
 Welcome to my DevJourney — a personal learning tracker and development playground.  
