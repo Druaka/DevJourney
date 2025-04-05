@@ -27,10 +27,9 @@
               }
             ],
             "styles": [
-              "src/assets/lara-dark-indigo_theme.scss",
+              "src/styles.scss",
               "node_modules/primeicons/primeicons.css",
-              "node_modules/primeflex/primeflex.css",
-              "src/styles.scss"
+              "node_modules/primeflex/primeflex.css"
             ],
             "scripts": [],
             "baseHref": "/devjourney/"
