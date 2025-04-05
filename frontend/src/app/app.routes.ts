@@ -1,13 +1,10 @@
 import {Routes} from '@angular/router';
 import {DashboardComponent} from "@app/pages/dashboard/dashboard.component";
-import {LayoutComponent} from "@app/layout/layout.component";
+import {JournalComponent} from "@app/pages/journal/journal.component";
 
 export const routes: Routes = [
-    {
-        path: '',
-        component: LayoutComponent,
-        children: [
-            {path: '', component: DashboardComponent}
-        ]
+    {path: '', component: DashboardComponent},
+    {path: 'dashboard', component: DashboardComponent},
+    {path: 'journal', component: JournalComponent
     }
 ];

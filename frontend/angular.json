@@ -23,14 +23,13 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/assets"
               }
             ],
             "styles": [
-              "primeng/resources/themes/lara-dark-indigo/theme.css",
-              "primeng/resources/primeng.css",
-              "primeicons/primeicons.css",
-              "primeflex/primeflex.css",
+              "src/assets/lara-dark-indigo_theme.scss",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeflex/primeflex.css",
               "src/styles.scss"
             ],
             "scripts": [],
@@ -86,7 +85,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/assets"
               }
             ],
             "styles": [
