@@ -5432,6 +5432,7 @@ export const appConfig: ApplicationConfig = {
         // PrimeNG + Animations
         provideAnimationsAsync(),
         providePrimeNG({
+            ripple: true,
             theme: {
                 preset: MyPreset,
             }
