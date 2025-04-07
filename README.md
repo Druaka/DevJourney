@@ -76,6 +76,7 @@ Backend runs on http://localhost:8080
 - Optionally deploy backend to Fly.io
 - light dark mode between phone and browser 
 - get service code from history 
+- update linktree
 
 ---
 
