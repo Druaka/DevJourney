@@ -1,6 +1,7 @@
 # 🧑‍💻 DevJourney
 
-Welcome to my DevJourney — a personal learning tracker and development playground.  
+Welcome to my DevJourney — a personal learning tracker and development playground.
+
 Click the badge below to visit the live GitHub Pages site:
 
 [![GitHub Page](https://img.shields.io/github/deployments/Druaka/devjourney/github-pages?label=GitHub%20Page)](https://druaka.github.io/devjourney/)
@@ -78,14 +79,3 @@ Backend runs on http://localhost:8080
 - update linktree
 
 ---
-
-## 🤝 Connect with Me
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/johan-van-wyk-0/)
-[![Twitch](https://img.shields.io/badge/Twitch-%239146FF.svg?style=for-the-badge&logo=Twitch&logoColor=white)](https://www.twitch.tv/druakah)
-[![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://www.youtube.com/@druakah)
-[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white)](https://x.com/JohanvanWyk3525)
-
----
-
-Feel free to explore, use, or contribute. This project grows as I grow.
