@@ -72,10 +72,9 @@ Backend runs on http://localhost:8080
 ## 🚧 Next Steps
 
 - Build out journal entry system (frontend + backend + DB)
-- Add PostgreSQL integration on backend
+- Add PostgreSQL / mongo integration on backend
 - Optionally deploy backend to Fly.io
 - light dark mode between phone and browser 
-- get service code from history 
 - update linktree
 
 ---
