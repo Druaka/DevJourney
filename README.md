@@ -78,5 +78,6 @@ Backend runs on http://localhost:8080
 - light dark mode between phone and browser 
 - update linktree
 - make icons not clickable?
+- Use issues and PRs to track todos
 
 ---
