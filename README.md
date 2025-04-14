@@ -78,6 +78,7 @@ Backend runs on http://localhost:8080
 - light dark mode between phone and browser 
 - update linktree
 - make icons not clickable?
-- Use issues and PRs to track todos
+- 🚨Use issues and PRs to track todos
+- 🚨add linktree for games + update skills header/levels + review huge typescript copy and paste
 
 ---
