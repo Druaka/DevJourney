@@ -72,13 +72,6 @@ Backend runs on http://localhost:8080
 
 ## 🚧 Next Steps
 
-- Build out journal entry system (frontend + backend + DB)
-- Add PostgreSQL / mongo integration on backend
-- Optionally deploy backend to Fly.io
-- light dark mode between phone and browser 
-- update linktree
-- make icons not clickable?
-- 🚨Use issues and PRs to track todos
-- 🚨add linktree for games + update skills header/levels + review huge typescript copy and paste
+TODO
 
 ---
