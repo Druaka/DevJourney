@@ -72,6 +72,6 @@ Backend runs on http://localhost:8080
 
 ## 🚧 Next Steps
 
-TODO
+TODO 😅
 
 ---
