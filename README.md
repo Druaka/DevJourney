@@ -2,7 +2,7 @@
 
 Welcome to my DevJourney — a personal learning tracker and development playground.
 
-Click the badge below to visit the live GitHub Pages site:
+Click the badge below to visit the live GitHub Pages website:
 
 [![GitHub Page](https://img.shields.io/github/deployments/Druaka/devjourney/github-pages?label=GitHub%20Page)](https://druaka.github.io/devjourney/)
 
