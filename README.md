@@ -63,7 +63,7 @@ Backend runs on http://localhost:8080
 
 ---
 
-## 🌍 Live Links
+## 🌐 Live Links
 
 - Frontend: [https://druaka.github.io/devjourney/](https://druaka.github.io/devjourney/)
 - Backend: [https://devjourney-backend.onrender.com/api/ping](https://devjourney-backend.onrender.com/api/ping)
