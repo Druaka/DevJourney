@@ -1,8 +1,8 @@
 # 🧑‍💻 DevJourney
 
-Welcome to my DevJourney — a personal learning tracker and development playground.
+Welcome to DevJourney — a personal MEAN stack project designed to track my growth, explore new ideas, and document my development progress. This space serves as both a learning tracker and a hands-on playground for experimenting with full-stack concepts.
 
-Click the badge below to visit the live GitHub Pages site:
+Click the badge below to visit the live GitHub Pages website:
 
 [![GitHub Page](https://img.shields.io/github/deployments/Druaka/devjourney/github-pages?label=GitHub%20Page)](https://druaka.github.io/devjourney/)
 
@@ -72,6 +72,8 @@ Backend runs on http://localhost:8080
 
 ## 🚧 Next Steps
 
-TODO 😅
+I’m keeping track of ideas and potential improvements as the project evolves. 
+
+You can find the running list here: [![Open Issues](https://img.shields.io/github/issues/Druaka/devjourney?color=6f42c1&logo=github&style=flat)](https://github.com/Druaka/devjourney/issues)
 
 ---
