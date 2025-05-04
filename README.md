@@ -17,7 +17,7 @@ Click the badge below to visit the live GitHub Pages website:
 <picture><img src="https://img.shields.io/github/actions/workflow/status/Druaka/devjourney/deploy-frontend.yml?branch=main&label=Build%20Status" alt="Build Status"></picture>
 <picture><img src="https://img.shields.io/github/last-commit/Druaka/devjourney?label=Last%20Commit" alt="Last Commit"></picture>
 
-This is an actively developing monorepo project with a live frontend, connected backend, and clean CI/CD.
+This is an actively developing monorepo project with a live frontend, connected backend and clean CI/CD.
 
 ### What’s been accomplished so far:
 
