@@ -72,7 +72,7 @@ Backend runs on http://localhost:8080
 
 ## 🚧 Next Steps
 
-I’m keeping track of ideas and potential improvements as the project evolves. 
+Ideas and potential improvements are tracked as the project evolves. 
 
 You can find the running list here: [![Open Issues](https://img.shields.io/github/issues/Druaka/devjourney?color=6f42c1&logo=github&style=flat)](https://github.com/Druaka/devjourney/issues)
 
