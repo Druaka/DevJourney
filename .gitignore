@@ -1,3 +1,6 @@
+# Environment variables
+backend/.env
+
 # Compiled output
 dist/
 docs/
