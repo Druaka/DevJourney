@@ -7,6 +7,9 @@ const port = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 
+// Import the database connection
+require('./db');
+
 // Simple test route
 app.get('/api/ping', (req, res) => {
     res.json({ message: 'Pong from backend' });
