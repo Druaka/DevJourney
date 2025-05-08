@@ -27,6 +27,7 @@ This is an actively developing monorepo project with a live frontend, connected 
 - ✅ Seamless frontend-backend integration with environment-aware service calls using provideHttpClient (Angular 18)
 - ✅ GitHub Actions deploy workflow for Angular
 - ✅ Render auto-deploys backend on Git push to `devjourney/backend`
+- ✅ MongoDB hosted via OVH Discovery
 
 ---
 
