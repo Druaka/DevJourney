@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 // Import the database connection
-require('./db/db.js');
+require('./db.js');
 
 // Simple test route
 app.get('/api/ping', (req, res) => {
