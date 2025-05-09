@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const uri = process.env.MONGODB_URI;
 const initializeUsers = require('./scripts/initializeData.js');
 
-
 mongoose.connect(uri, {}).then(async () => {
     console.log('Connected to MongoDB');
 
