@@ -2,9 +2,8 @@ require('dotenv').config({path: '.env.prod'});
 
 const mongoose = require('mongoose');
 const uri = process.env.MONGODB_URI;
+const initializeUsers = require('./scripts/initializeData.js');
 
-// Import the user schema
-const User = require('./schema/user.js');
 
 mongoose.connect(uri, {}).then(async () => {
     console.log('Connected to MongoDB');
@@ -18,6 +17,9 @@ mongoose.connect(uri, {}).then(async () => {
     } else {
         console.log('"users" collection already exists');
     }
+
+    // Initialize users
+    await initializeUsers();
 }).catch((err) => {
     console.error('Error connecting to MongoDB:', err);
 });
