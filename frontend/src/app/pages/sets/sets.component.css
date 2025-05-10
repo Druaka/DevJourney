@@ -1,0 +1,21 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.fixed-size-logo {
+    width: 160px !important;
+    max-width: 160px !important;
+    height: 160px !important;
+    max-height: 160px !important;
+    object-fit: scale-down !important;
+}
+
+.fixed-size-symbol {
+    width: 25px !important;
+    max-width: 25px !important;
+    height: 25px !important;
+    max-height: 25px !important;
+    object-fit: scale-down !important;
+}

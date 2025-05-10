@@ -19,6 +19,8 @@ export class LayoutComponent {
         this.items = [
             {label: 'Dashboard', icon: 'pi pi-home', routerLink: '/dashboard'},
             {label: 'Journal', icon: 'pi pi-book', routerLink: '/journal'},
+            {label: 'Sets', icon: 'pi pi-book', routerLink: '/sets'},
+            {label: 'Cards', icon: 'pi pi-book', routerLink: '/cards'},
             // Add more menu items as needed
         ];
     }
