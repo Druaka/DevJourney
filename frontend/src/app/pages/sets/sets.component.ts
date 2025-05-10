@@ -17,7 +17,6 @@ import {TagModule} from "primeng/tag";
 })
 export class SetsComponent implements OnInit {
     sets: any[] = [];
-    uniqueSeries: string[] = [];
     layout: 'grid' | 'list' = 'grid';
     options: { label: string, value: 'grid' | 'list' }[] = [
         {label: 'Grid', value: 'grid'},
@@ -31,7 +30,6 @@ export class SetsComponent implements OnInit {
         this.pokemonService.fetchSets().subscribe(data => {
             this.sets = data.data;
             this.sets.sort((a, b) => new Date(a.releaseDate).getTime() - new Date(b.releaseDate).getTime());
-            this.uniqueSeries = [...new Set(this.sets.map(set => set.series))];
         });
     }
 

@@ -16,20 +16,15 @@
     </ng-template>
 
     <ng-template #grid let-items>
-        <div *ngFor="let series of uniqueSeries">
-            <div class="grid grid-nogutter">
-                <span class="text-xl font-semibold align-content-center">{{ series }}</span>
-            </div>
-            <div class="grid grid-nogutter">
-                <div *ngFor="let set of items" [style.display]="set.series === series ? 'block' : 'none'"
-                     class="flex-column align-content-evenly p-2 rounded">
-                    <p-tag [severity]="'secondary'" class="flex relative p-1 h-6rem w-8rem">
-                        <img class="rounded w-full fixed-size-symbol" [src]="set.images.symbol"/>
-                        <span class="align-content-center">{{ set.releaseDate }}<br>{{ set.name }}</span>
-                    </p-tag>
-                    <div class="flex justify-content-center p-1 w-8rem">
-                        <img class="align-items-center rounded w-full fixed-size-logo" [src]="set.images.logo" [alt]="set.name"/>
-                    </div>
+        <div class="flex-row justify-content-center md:justify-content-start grid grid-nogutter">
+            <div *ngFor="let set of items" class="flex-column align-content-evenly p-2 rounded hover:bg-black-alpha-10 hover:shadow-1">
+                <p-tag [severity]="'secondary'" class="flex relative p-1 h-6rem w-10rem md:w-8rem">
+                    <img class="rounded w-full fixed-size-symbol" [src]="set.images.symbol"/>
+                    <span class="align-content-center">{{ set.releaseDate }}<br>{{ set.name }}</span>
+                </p-tag>
+                <div class="flex justify-content-center p-1 w-10rem md:w-8rem">
+                    <img class="align-items-center rounded w-full fixed-size-logo"
+                         [src]="set.images.logo" [alt]="set.name"/>
                 </div>
             </div>
         </div>
