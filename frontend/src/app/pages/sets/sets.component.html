@@ -1,9 +1,10 @@
-<p-dataView #dv [value]="sets" [layout]="layout">
+<p-dataView #dv [value]="setsData()" [layout]="layout">
     <ng-template #header>
-        <div class="flex justify-between items-center" style="height: 100px;">
-            <span class="text-xl font-semibold text-surface-900 dark:text-surface-0">Header</span>
-            <div class="flex items-center">
-                <span class="mr-2">View Mode:</span>
+        <div class="flex justify-content-between">
+            <div class="flex justify-start">
+                <span class="text-xl font-semibold align-content-center">Header</span>
+            </div>
+            <div class="flex justify-end">
                 <p-selectbutton [(ngModel)]="layout" [options]="options" [allowEmpty]="false">
                     <ng-template #item let-item>
                         <i [ngClass]="{ 'pi-bars': item.value === 'list', 'pi-table': item.value === 'grid' }"
@@ -16,25 +17,18 @@
 
     <ng-template #grid let-items>
         <div *ngFor="let series of uniqueSeries">
-            <span class="text-xl font-semibold text-surface-900 dark:text-surface-0">{{ series }}</span>
-            <div class="grid grid-cols-12 gap-0">
-                <div *ngFor="let set of items" [style.display]="set.series === series ? 'block' : 'none'">
-                    <div class="p-0 border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900 rounded">
-
-                        <div class="bg-surface-50 flex justify-center rounded p-1">
-                            <div class="relative mx-auto">
-                                <img class="rounded w-full fixed-size-logo"
-                                     [src]="set.images.logo"
-                                     [alt]="set.name"
-                                     style="max-width: 300px"/>
-                                <p-tag [severity]="'secondary'" styleClass="dark:!bg-surface-900" [style.left.px]="4"
-                                       [style.top.px]="4" class="absolute">
-                                    <img class="rounded w-full fixed-size-symbol" [src]="set.images.symbol"/>
-                                    {{ set.releaseDate + ' — ' + set.name }}
-                                </p-tag>
-                            </div>
-                        </div>
-
+            <div class="grid grid-nogutter">
+                <span class="text-xl font-semibold align-content-center">{{ series }}</span>
+            </div>
+            <div class="grid grid-nogutter">
+                <div *ngFor="let set of items" [style.display]="set.series === series ? 'block' : 'none'"
+                     class="flex-column align-content-evenly p-2 rounded">
+                    <p-tag [severity]="'secondary'" class="flex relative p-1 h-6rem w-8rem">
+                        <img class="rounded w-full fixed-size-symbol" [src]="set.images.symbol"/>
+                        <span class="align-content-center">{{ set.releaseDate + ' — ' + set.name }}</span>
+                    </p-tag>
+                    <div class="flex justify-content-center p-1 w-8rem">
+                        <img class="align-items-center rounded w-full fixed-size-logo" [src]="set.images.logo" [alt]="set.name"/>
                     </div>
                 </div>
             </div>
@@ -44,14 +38,16 @@
     <ng-template #list let-items>
         <div *ngFor="let set of items">
             <p-panel header="{{ set.releaseDate }} {{ set.name }}">
-                <img [src]="set.images.logo" alt="{{ set.name }} logo">
+                <img [src]="set.images.logo" alt="{{ set.name }} logo" class="fixed-size-logo">
             </p-panel>
         </div>
     </ng-template>
 
     <ng-template #footer>
-        <div class="flex justify-end">
-            <span class="text-xl font-semibold text-surface-900 dark:text-surface-0">Footer</span>
+        <div class="flex justify-content-between">
+            <div class="flex justify-start">
+                <span class="text-xl font-semibold align-content-center">Footer</span>
+            </div>
         </div>
     </ng-template>
 </p-dataView>

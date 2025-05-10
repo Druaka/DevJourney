@@ -6,7 +6,7 @@ import {Card} from "primeng/card";
 @Component({
     selector: 'app-cards',
     templateUrl: './cards.component.html',
-    styleUrls: ['./cards.component.css'],
+    styleUrls: ['./cards.component.scss'],
     standalone: true,
     imports: [CommonModule, Card]
 })

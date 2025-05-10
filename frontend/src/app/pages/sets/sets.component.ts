@@ -11,7 +11,7 @@ import {TagModule} from "primeng/tag";
 @Component({
     selector: 'app-sets',
     templateUrl: './sets.component.html',
-    styleUrls: ['./sets.component.css'],
+    styleUrls: ['./sets.component.scss'],
     standalone: true,
     imports: [CommonModule, Panel, DataViewModule, SelectButtonModule, FormsModule, DividerModule, TagModule]
 })
@@ -33,5 +33,9 @@ export class SetsComponent implements OnInit {
             this.sets.sort((a, b) => new Date(a.releaseDate).getTime() - new Date(b.releaseDate).getTime());
             this.uniqueSeries = [...new Set(this.sets.map(set => set.series))];
         });
+    }
+
+    setsData() {
+        return this.sets;
     }
 }
