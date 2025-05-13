@@ -1,8 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const pingRoutes = require('./routes/ping.js');
-const setsRoutes = require('./routes/pokemontcg/sets.js');
-const cardsRoutes = require('./routes/pokemontcg/cards.js');
+const setsRoutes = require('./routes/sets.js');
+const cardsRoutes = require('./routes/cards.js');
 
 const app = express();
 const port = process.env.PORT || 8080;
