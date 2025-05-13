@@ -23,9 +23,12 @@
                 <div class="flex justify-content-center bg-white-alpha-90 border-round w-10rem p-2">
                     <img class="fixed-size-logo" [src]="set.images.logo" [alt]="set.name"/>
                 </div>
-                <p-tag [severity]="'secondary'" class="h-6rem w-10rem p-2">
+                <p-tag [severity]="'secondary'" class="h-4rem w-10rem p-2">
                     <img class="fixed-size-symbol" [src]="set.images.symbol" [alt]="set.name"/>
-                    <span>{{ set.releaseDate }}<br>{{ set.name }}</span>
+                    <div class="flex flex-column align-items-center">
+                        <span class="pl-2">{{ set.total }} cards</span>
+                        <span class="pl-2">{{ set.releaseDate }}</span>
+                    </div>
                 </p-tag>
             </div>
         </div>
