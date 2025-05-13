@@ -1,19 +1,15 @@
 <p-dataView #dv [value]="setsData()" [layout]="layout">
     <ng-template #header>
-        <div class="flex justify-content-between">
-            <div class="flex justify-start md:pl-4 lg:pl-8">
-                <p-dropdown [options]="sortOptions" (onChange)="sortSets()" [(ngModel)]="sortKey"/>
-                <p-button *ngIf="sortOrder === -1" icon="pi pi-sort-amount-down" (onClick)="setSortOrder(1)"></p-button>
-                <p-button *ngIf="sortOrder === 1" icon="pi pi-sort-amount-up" (onClick)="setSortOrder(-1)"></p-button>
-            </div>
-            <div class="flex justify-end md:pr-8">
-                <p-selectButton [(ngModel)]="layout" [options]="options" [allowEmpty]="false">
-                    <ng-template #item let-item>
-                        <i [ngClass]="{ 'pi-bars': item.value === 'list', 'pi-table': item.value === 'grid' }"
-                           class="pi"></i>
-                    </ng-template>
-                </p-selectButton>
-            </div>
+        <div class="flex justify-content-center align-items-center">
+            <p-selectButton [(ngModel)]="layout" [options]="options" [allowEmpty]="false" class="mr-1">
+                <ng-template #item let-item>
+                    <i [ngClass]="{ 'pi-bars': item.value === 'list', 'pi-table': item.value === 'grid' }"
+                       class="pi"></i>
+                </ng-template>
+            </p-selectButton>
+            <p-dropdown [options]="sortOptions" (onChange)="sortSets()" [(ngModel)]="sortKey" class="mr-1"/>
+            <p-button *ngIf="sortOrder === -1" icon="pi pi-sort-amount-down" (onClick)="setSortOrder(1)" class="mr-1"/>
+            <p-button *ngIf="sortOrder === 1" icon="pi pi-sort-amount-up" (onClick)="setSortOrder(-1)"/>
         </div>
     </ng-template>
 

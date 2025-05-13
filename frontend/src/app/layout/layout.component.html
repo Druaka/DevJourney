@@ -1,6 +1,6 @@
 <p-menubar [model]="items">
     <ng-template #start>
-        <div class="flex items-center gap-2">
+        <div class="flex items-center p-2">
             <span class="font-bold text-lg">MyApp</span>
         </div>
     </ng-template>
@@ -24,8 +24,6 @@
     <router-outlet></router-outlet>
 </div>
 
-<footer class="flex justify-content-between p-4">
-    <div class="flex justify-start">
-        <span class="text-xl font-semibold align-content-center">Footer</span>
-    </div>
+<footer class="p-4">
+    <span class="font-bold text-lg">Footer</span>
 </footer>
