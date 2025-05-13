@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const initializePokemonTCG = require('./init/initializePokemonTCG.js');
 const pingRoutes = require('./routes/ping.js');
 const setsRoutes = require('./routes/pokemontcg/sets.js');
 const cardsRoutes = require('./routes/pokemontcg/cards.js');
@@ -21,11 +20,4 @@ app.use('/api/pokemontcg/cards', cardsRoutes);
 
 app.listen(port, () => {
     console.log(`Backend listening at http://localhost:${port}`);
-
-    // Initialize PokemonTCG data
-    initializePokemonTCG().then(() => {
-        console.log('Data initialization complete.');
-    }).catch((error) => {
-        console.error('Data initialization failed:', error);
-    });
 });
