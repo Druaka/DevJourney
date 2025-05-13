@@ -1,12 +1,13 @@
 <p-menubar [model]="items">
     <ng-template #start>
         <div class="flex items-center p-2">
-            <span class="font-bold text-lg">MyApp</span>
+            <span class="font-bold text-lg">{{ selectedItemLabel }}</span>
         </div>
     </ng-template>
 
     <ng-template #item let-item let-root="root">
-        <a pRipple [routerLink]="item.routerLink" class="flex items-center p-menubar-item-link">
+        <a pRipple [routerLink]="item.routerLink" (click)="onItemSelect(item)"
+           class="flex items-center p-menubar-item-link">
             <span>{{ item.label }}</span>
         </a>
     </ng-template>
