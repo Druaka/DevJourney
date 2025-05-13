@@ -31,6 +31,14 @@ async function storeData(sets) {
 
 mongoose.connect(uri, {}).then(async () => {
     console.log('Connected to MongoDB');
+
+    // Drop the database if it exists
+    await mongoose.connection.db.dropDatabase();
+    console.log('Database dropped');
+
+    // Fetch data and store it in MongoDB
+    const sets = await fetchData();
+    await storeData(sets);
 }).catch((err) => {
     console.error('Error connecting to MongoDB:', err);
 });
