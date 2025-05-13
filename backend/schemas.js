@@ -2,35 +2,100 @@ const mongoose = require('mongoose');
 
 const cardSchema = new mongoose.Schema({
     id: String,
-    image: String,
+    localId: String,
     name: String,
+    image: String,
+    category: String,
+    illustrator: String,
+    rarity: String,
+    variants: {
+        normal: Boolean,
+        reverse: Boolean,
+        holo: Boolean,
+        firstEdition: Boolean,
+    },
+    set: {
+        id: String,
+        name: String,
+        logo: String,
+        symbol: String,
+        cardCount: {
+            official: Number,
+            total: Number,
+        },
+    },
+    hp: Number,
+    types: [String],
+    evolveFrom: String,
+    description: String,
+    stage: String,
+    attacks: [{
+        cost: [String],
+        name: String,
+        effect: String,
+        damage: Number,
+    }],
+    weaknesses: [{
+        type: String,
+        value: String,
+    }],
+    retreat: Number,
+    regulationMark: String,
+    legal: {
+        standard: Boolean,
+        expanded: Boolean,
+    },
 });
 
 const setSchema = new mongoose.Schema({
     id: String,
-    logo: String,
     name: String,
-    releaseDate: String,
+    logo: String,
     symbol: String,
-    tcgOnline: String,
     cardCount: {
-        firstEd: Number,
-        holo: Number,
-        normal: Number,
         official: Number,
-        reverse: Number,
         total: Number,
+        reverse: Number,
+        holo: Number,
+        firstEd: Number,
     },
     serie: {
         id: String,
-        logo: String,
         name: String,
+    },
+    tcgOnline: String,
+    releaseDate: String,
+    legal: {
+        standard: Boolean,
+        expanded: Boolean,
     },
     cards: [cardSchema],
 });
 
+const setBriefSchema = new mongoose.Schema({
+    id: String,
+    logo: String,
+    name: String,
+    cardCount: {
+        official: Number,
+        total: Number,
+    },
+    symbol: String,
+});
+
+const serieSchema = new mongoose.Schema({
+    id: String,
+    name: String,
+    logo: String,
+    sets: [setBriefSchema],
+});
+
+const CardModel = mongoose.model('Card', cardSchema);
 const SetModel = mongoose.model('Set', setSchema);
+const SerieModel = mongoose.model('Serie', serieSchema);
 
 module.exports = {
+    CardModel,
     SetModel,
+    SerieModel,
 };
