@@ -72,30 +72,10 @@ const setSchema = new mongoose.Schema({
     cards: [cardSchema],
 });
 
-const setBriefSchema = new mongoose.Schema({
-    id: String,
-    logo: String,
-    name: String,
-    cardCount: {
-        official: Number,
-        total: Number,
-    },
-    symbol: String,
-});
-
-const serieSchema = new mongoose.Schema({
-    id: String,
-    name: String,
-    logo: String,
-    sets: [setBriefSchema],
-});
-
-const CardModel = mongoose.model('Card', cardSchema);
-const SetModel = mongoose.model('Set', setSchema);
-const SerieModel = mongoose.model('Serie', serieSchema);
+const PtcgSetModel = mongoose.model('PtcgSet', setSchema);
+const TcgpSetModel = mongoose.model('TcgpSet', setSchema);
 
 module.exports = {
-    CardModel,
-    SetModel,
-    SerieModel,
+    PtcgSetModel,
+    TcgpSetModel,
 };
