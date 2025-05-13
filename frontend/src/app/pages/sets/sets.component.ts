@@ -10,13 +10,16 @@ import {TagModule} from "primeng/tag";
 import {DropdownModule} from 'primeng/dropdown';
 import {RippleModule} from 'primeng/ripple';
 import {Button} from "primeng/button";
+import {InputTextModule} from 'primeng/inputtext';
+import {InputGroupAddon} from "primeng/inputgroupaddon";
+import {InputGroup} from "primeng/inputgroup";
 
 @Component({
     selector: 'app-sets',
     templateUrl: './sets.component.html',
     styleUrls: ['./sets.component.scss'],
     standalone: true,
-    imports: [CommonModule, Panel, DataViewModule, SelectButtonModule, FormsModule, DividerModule, TagModule, DropdownModule, RippleModule, Button]
+    imports: [CommonModule, Panel, DataViewModule, SelectButtonModule, FormsModule, DividerModule, TagModule, DropdownModule, RippleModule, Button, InputTextModule, InputGroupAddon, InputGroup]
 })
 export class SetsComponent implements OnInit {
     sets: any[] = [];
@@ -26,11 +29,12 @@ export class SetsComponent implements OnInit {
         //{label: 'List', value: 'list'}
     ];
     sortOptions: { label: string, value: string }[] = [
-        {label: 'Date', value: 'releaseDate'},
-        {label: 'Name', value: 'name'}
+        {label: '📅', value: 'releaseDate'},
+        {label: '🔤', value: 'name'}
     ];
     sortKey: string = 'releaseDate';
     sortOrder: number = -1;
+    searchTerm: string = '';
 
     constructor(private pokemonService: PokemonService) {
     }
@@ -59,7 +63,11 @@ export class SetsComponent implements OnInit {
         });
     }
 
-    setsData() {
-        return this.sets;
+    filteredSets() {
+        return this.sets.filter(set => set.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
+    }
+
+    clearSearch() {
+        this.searchTerm = '';
     }
 }

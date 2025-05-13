@@ -1,12 +1,21 @@
-<p-dataView #dv [value]="setsData()" [layout]="layout">
+<p-dataView #dv [value]="filteredSets()" [layout]="layout">
     <ng-template #header>
-        <div class="flex justify-content-center align-items-center">
+        <div class="flex justify-content-center align-items-center pl-2 pr-2 md:pl-4 md:pr-4">
             <p-selectButton [(ngModel)]="layout" [options]="options" [allowEmpty]="false" class="mr-1">
                 <ng-template #item let-item>
                     <i [ngClass]="{ 'pi-bars': item.value === 'list', 'pi-table': item.value === 'grid' }"
                        class="pi"></i>
                 </ng-template>
             </p-selectButton>
+            <p-inputgroup class="mr-1">
+                <p-inputgroup-addon>
+                    <i class="pi pi-search"></i>
+                </p-inputgroup-addon>
+                <input placeholder="Search..." pInputText [(ngModel)]="searchTerm"/>
+                <p-inputgroup-addon *ngIf="searchTerm">
+                    <i class="pi pi-times p-button-text" (click)="clearSearch()"></i>
+                </p-inputgroup-addon>
+            </p-inputgroup>
             <p-dropdown [options]="sortOptions" (onChange)="sortSets()" [(ngModel)]="sortKey" class="mr-1"/>
             <p-button *ngIf="sortOrder === -1" icon="pi pi-sort-amount-down" (onClick)="setSortOrder(1)" class="mr-1"/>
             <p-button *ngIf="sortOrder === 1" icon="pi pi-sort-amount-up" (onClick)="setSortOrder(-1)"/>
@@ -19,11 +28,12 @@
                 <div class="flex justify-content-center bg-white-alpha-90 border-round w-10rem p-2">
                     <img class="fixed-size-logo" [src]="set.images.logo" [alt]="set.name"/>
                 </div>
-                <p-tag [severity]="'secondary'" class="h-4rem w-10rem p-2">
+                <p-tag [severity]="'secondary'" class="h-5rem w-10rem p-2">
                     <img class="fixed-size-symbol" [src]="set.images.symbol" [alt]="set.name"/>
-                    <div class="flex flex-column align-items-center">
-                        <span class="pl-2">{{ set.total }} cards</span>
-                        <span class="pl-2">{{ set.releaseDate }}</span>
+                    <div class="flex flex-column align-items-center pl-1 text-xs text-center">
+                        <span>{{ set.total }} cards</span>
+                        <span>{{ set.releaseDate }}</span>
+                        <span>{{ set.name }}</span>
                     </div>
                 </p-tag>
             </div>
