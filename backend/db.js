@@ -9,7 +9,7 @@ const uri = process.env.MONGODB_URI;
 
 // Instantiate the SDK with your preferred language
 const tcgdex = new TCGdex('en');
-const throttle = throttledQueue(50, 1000);
+const throttle = throttledQueue(200, 20);
 
 async function fetchData() {
     try {
