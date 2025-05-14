@@ -4,18 +4,28 @@ import {Observable} from 'rxjs';
 import {environment} from '@env/environment';
 
 @Injectable({providedIn: 'root'})
-export class PokemonService {
+export class TcgdexService {
     constructor(private http: HttpClient) {
     }
 
-    fetchSets(params?: any): Observable<any> {
+    fetchPtcgSets(params?: any): Observable<any> {
         let httpParams = new HttpParams();
         if (params) {
             Object.keys(params).forEach(key => {
                 httpParams = httpParams.set(key, params[key]);
             });
         }
-        return this.http.get(`${environment.apiUrl}/pokemontcg/sets`, {params: httpParams});
+        return this.http.get(`${environment.apiUrl}/tcgdex/ptcg-sets`, {params: httpParams});
+    }
+
+    fetchTcgpSets(params?: any): Observable<any> {
+        let httpParams = new HttpParams();
+        if (params) {
+            Object.keys(params).forEach(key => {
+                httpParams = httpParams.set(key, params[key]);
+            });
+        }
+        return this.http.get(`${environment.apiUrl}/tcgdex/tcgp-sets`, {params: httpParams});
     }
 
     fetchCards(params?: any): Observable<any> {
@@ -25,6 +35,6 @@ export class PokemonService {
                 httpParams = httpParams.set(key, params[key]);
             });
         }
-        return this.http.get(`${environment.apiUrl}/pokemontcg/cards`, {params: httpParams});
+        return this.http.get(`${environment.apiUrl}/tcgdex/cards`, {params: httpParams});
     }
 }

@@ -8,6 +8,7 @@ export const routes: Routes = [
     {path: '', component: DashboardComponent},
     {path: 'dashboard', component: DashboardComponent},
     {path: 'journal', component: JournalComponent},
-    {path: 'sets', component: SetsComponent},
+    {path: 'ptcg-sets', component: SetsComponent},
+    {path: 'tcgp-sets', component: SetsComponent},
     {path: 'cards', component: CardsComponent}
 ];

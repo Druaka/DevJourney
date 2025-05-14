@@ -1,4 +1,4 @@
-require('dotenv').config({path: '.env.local'});
+require('dotenv').config({path: '.env.prod'});
 
 const mongoose = require('mongoose');
 const TCGdex = require('@tcgdex/sdk').default;
@@ -9,7 +9,7 @@ const uri = process.env.MONGODB_URI;
 
 // Instantiate the SDK with your preferred language
 const tcgdex = new TCGdex('en');
-const throttle = throttledQueue(200, 20);
+const throttle = throttledQueue(500, 10);
 
 async function fetchData() {
     try {

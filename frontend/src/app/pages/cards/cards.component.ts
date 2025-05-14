@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {PokemonService} from '@app/services/pokemontcg.service';
+import {TcgdexService} from '@app/services/tcgdex.service';
 import {CommonModule} from "@angular/common";
 import {Card} from "primeng/card";
 
@@ -13,11 +13,11 @@ import {Card} from "primeng/card";
 export class CardsComponent implements OnInit {
     cards: any[] = [];
 
-    constructor(private pokemonService: PokemonService) {
+    constructor(private tcgdexService: TcgdexService) {
     }
 
     ngOnInit(): void {
-        this.pokemonService.fetchCards().subscribe(data => {
+        this.tcgdexService.fetchCards().subscribe(data => {
             this.cards = data.data;
         });
     }
