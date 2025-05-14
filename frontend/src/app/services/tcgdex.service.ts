@@ -27,14 +27,4 @@ export class TcgdexService {
         }
         return this.http.get(`${environment.apiUrl}/tcgdex/tcgp-sets`, {params: httpParams});
     }
-
-    fetchCards(params?: any): Observable<any> {
-        let httpParams = new HttpParams();
-        if (params) {
-            Object.keys(params).forEach(key => {
-                httpParams = httpParams.set(key, params[key]);
-            });
-        }
-        return this.http.get(`${environment.apiUrl}/tcgdex/cards`, {params: httpParams});
-    }
 }
