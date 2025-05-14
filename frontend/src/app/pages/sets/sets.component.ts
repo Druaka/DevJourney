@@ -82,15 +82,39 @@ export class SetsComponent implements OnInit {
         this.searchTerm = '';
     }
 
-    getLogoUrl(url: string): string {
-        return !url ? 'na.png' : url + '.webp';
+    getLogoUrl(set: any): string {
+        let logo = set.logo;
+        let name = set.name;
+        let url: string;
+        if (logo) {
+            url = logo + '.webp';
+        } else if (name.toLowerCase().includes("black star promo")) {
+            url = 'ptcg/blackstar.png';
+        } else if (name.toLowerCase().includes("dragon majesty")) {
+            url = 'ptcg/dragon-majesty.png';
+        } else if (name.toLowerCase().includes("macdonald")) {
+            url = 'ptcg/mcdonald.png';
+        } else if (name.toLowerCase().includes("shining legends")) {
+            url = 'ptcg/shining-legends.png';
+        } else if (name.toLowerCase().includes("temporal forces")) {
+            url = 'ptcg/temporal-forces.png';
+        } else if (name.toLowerCase().includes("trainer kit")) {
+            url = 'ptcg/trainer-kit.png';
+        } else {
+            url = 'ptcg/na.png';
+        }
+        return url;
     }
 
-    getHighCardUrl(url: string): string {
-        return !url ? 'na.png' : url + '.high.webp';
+    getHighCardUrl(set: any): string {
+        let logo = set.logo;
+        let url = !logo ? 'na.png' : logo + '.high.webp';
+        return url;
     }
 
-    getLowCardUrl(url: string): string {
-        return !url ? 'na.png' : url + '.low.webp';
+    getLowCardUrl(set: any): string {
+        let logo = set.logo;
+        let url = !logo ? 'na.png' : logo + '.low.webp';
+        return url;
     }
 }
