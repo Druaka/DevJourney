@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {PokemonService} from '@app/services/pokemontcg.service';
+import {ActivatedRoute} from '@angular/router';
+import {TcgdexService} from '@app/services/tcgdex.service';
 import {CommonModule} from "@angular/common";
 import {Panel} from "primeng/panel";
 import {DataViewModule} from 'primeng/dataview';
@@ -30,19 +31,29 @@ export class SetsComponent implements OnInit {
     ];
     sortOptions: { label: string, value: string }[] = [
         {label: '📅', value: 'releaseDate'},
-        {label: '🔤', value: 'name'}
+        {label: '🆎', value: 'name'}
     ];
     sortKey: string = 'releaseDate';
     sortOrder: number = -1;
     searchTerm: string = '';
 
-    constructor(private pokemonService: PokemonService) {
+    constructor(private tcgdexService: TcgdexService, private route: ActivatedRoute) {
     }
 
     ngOnInit(): void {
-        this.pokemonService.fetchSets().subscribe(data => {
-            this.sets = data.data;
-            this.sortSets();
+        this.route.url.subscribe(url => {
+            const currentRoute = url[0].path;
+            if (currentRoute === 'ptcg-sets') {
+                this.tcgdexService.fetchPtcgSets().subscribe(data => {
+                    this.sets = data;
+                    this.sortSets();
+                });
+            } else if (currentRoute === 'tcgp-sets') {
+                this.tcgdexService.fetchTcgpSets().subscribe(data => {
+                    this.sets = data;
+                    this.sortSets();
+                });
+            }
         });
     }
 
@@ -69,5 +80,17 @@ export class SetsComponent implements OnInit {
 
     clearSearch() {
         this.searchTerm = '';
+    }
+
+    getLogoUrl(url: string): string {
+        return !url ? 'na.png' : url + '.webp';
+    }
+
+    getHighCardUrl(url: string): string {
+        return !url ? 'na.png' : url + '.high.webp';
+    }
+
+    getLowCardUrl(url: string): string {
+        return !url ? 'na.png' : url + '.low.webp';
     }
 }
