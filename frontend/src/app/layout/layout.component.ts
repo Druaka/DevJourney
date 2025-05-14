@@ -26,7 +26,6 @@ export class LayoutComponent implements OnInit {
             {label: 'Journal', icon: 'pi pi-book', routerLink: '/journal'},
             {label: 'ptcg-sets', icon: 'pi pi-book', routerLink: '/ptcg-sets'},
             {label: 'tcgp-sets', icon: 'pi pi-book', routerLink: '/tcgp-sets'},
-            {label: 'Cards', icon: 'pi pi-book', routerLink: '/cards'},
             // Add more menu items as needed
         ];
 
