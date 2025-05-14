@@ -26,12 +26,11 @@
         <div class="justify-content-center grid grid-nogutter">
             <div *ngFor="let set of items" class="select-none hover-effect p-2" pRipple>
                 <div class="flex justify-content-center bg-white-alpha-90 border-round w-10rem p-2">
-                    <img class="fixed-size-logo" [src]="set.images.logo" [alt]="set.name"/>
+                    <img class="fixed-size-logo" [src]="getLogoUrl(set.logo)" [alt]="set.name"/>
                 </div>
                 <p-tag [severity]="'secondary'" class="h-5rem w-10rem p-2">
-                    <img class="fixed-size-symbol" [src]="set.images.symbol" [alt]="set.name"/>
                     <div class="flex flex-column align-items-center pl-1 text-xs text-center">
-                        <span>{{ set.total }} cards</span>
+                        <span>{{ set.cardCount.total }} cards</span>
                         <span>{{ set.releaseDate }}</span>
                         <span>{{ set.name }}</span>
                     </div>
@@ -43,7 +42,7 @@
     <ng-template #list let-items>
         <div *ngFor="let set of items">
             <p-panel header="{{ set.releaseDate }} {{ set.name }}">
-                <img [src]="set.images.logo" alt="{{ set.name }} logo" class="fixed-size-logo">
+                <img [src]="getLogoUrl(set.logo)" alt="{{ set.name }} logo" class="fixed-size-logo">
             </p-panel>
         </div>
     </ng-template>

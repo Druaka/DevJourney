@@ -45,12 +45,12 @@ export class SetsComponent implements OnInit {
             const currentRoute = url[0].path;
             if (currentRoute === 'ptcg-sets') {
                 this.tcgdexService.fetchPtcgSets().subscribe(data => {
-                    this.sets = data.data;
+                    this.sets = data;
                     this.sortSets();
                 });
             } else if (currentRoute === 'tcgp-sets') {
                 this.tcgdexService.fetchTcgpSets().subscribe(data => {
-                    this.sets = data.data;
+                    this.sets = data;
                     this.sortSets();
                 });
             }
@@ -80,5 +80,17 @@ export class SetsComponent implements OnInit {
 
     clearSearch() {
         this.searchTerm = '';
+    }
+
+    getLogoUrl(url: string): string {
+        return !url ? 'na.png' : url + '.webp';
+    }
+
+    getHighCardUrl(url: string): string {
+        return !url ? 'na.png' : url + '.high.webp';
+    }
+
+    getLowCardUrl(url: string): string {
+        return !url ? 'na.png' : url + '.low.webp';
     }
 }
