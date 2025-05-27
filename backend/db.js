@@ -11,6 +11,25 @@ const uri = process.env.MONGODB_URI;
 const tcgdex = new TCGdex('en');
 const throttle = throttledQueue(500, 10);
 
+async function connectAndSeedDB() {
+    try {
+        await mongoose.connect(uri, {});
+        console.log('Connected to MongoDB');
+
+        await mongoose.connection.db.dropDatabase();
+        console.log('Database dropped');
+
+        const {ptcgSets, tcgpSets} = await fetchData();
+        await storePtcgSets(ptcgSets);
+        await storeTcgpSets(tcgpSets);
+
+        console.log('Database seeding complete');
+    } catch (err) {
+        console.error('Error during DB setup:', err);
+        throw err; // Let the caller handle the error
+    }
+}
+
 async function fetchData() {
     try {
         // Fetch all Pokémon TCG sets
@@ -26,7 +45,7 @@ async function fetchData() {
         return {ptcgSets, tcgpSets};
     } catch (error) {
         console.error('Error fetching data via TCGdex SDK:', error);
-        return {cards: [], sets: [], series: []};
+        return {ptcgSets: [], tcgpSets: []};
     }
 }
 
@@ -47,20 +66,6 @@ async function fetchSetDetails(setResumes) {
     return sets;
 }
 
-mongoose.connect(uri, {}).then(async () => {
-    console.log('Connected to MongoDB');
-
-    // Drop the database if it exists
-    await mongoose.connection.db.dropDatabase();
-    console.log('Database dropped');
-
-    const {ptcgSets, tcgpSets} = await fetchData();
-    await storePtcgSets(ptcgSets);
-    await storeTcgpSets(tcgpSets);
-}).catch((err) => {
-    console.error('Error connecting to MongoDB:', err);
-});
-
 async function storePtcgSets(ptcgSets) {
     try {
         await PtcgSetModel.insertMany(ptcgSets);
@@ -78,3 +83,5 @@ async function storeTcgpSets(tcgpSets) {
         console.error('Error storing TcgpSets in MongoDB:', error);
     }
 }
+
+module.exports = connectAndSeedDB;
