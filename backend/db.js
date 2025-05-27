@@ -11,6 +11,9 @@ const uri = process.env.MONGODB_URI;
 const tcgdex = new TCGdex('en');
 const throttle = throttledQueue(500, 10);
 
+// Import the cache module
+const cache = require('./cache');
+
 async function connectAndSeedDB() {
     try {
         await mongoose.connect(uri, {});
@@ -20,13 +23,18 @@ async function connectAndSeedDB() {
         console.log('Database dropped');
 
         const {ptcgSets, tcgpSets} = await fetchData();
+
         await storePtcgSets(ptcgSets);
         await storeTcgpSets(tcgpSets);
+
+        // Store in memory
+        cache.ptcgSets = ptcgSets.map(set => set.toObject ? set.toObject() : set);
+        cache.tcgpSets = tcgpSets.map(set => set.toObject ? set.toObject() : set);
 
         console.log('Database seeding complete');
     } catch (err) {
         console.error('Error during DB setup:', err);
-        throw err; // Let the caller handle the error
+        throw err;
     }
 }
 
@@ -57,7 +65,24 @@ async function fetchSetDetails(setResumes) {
         await throttle(async () => {
             try {
                 const set = await tcgdex.set.get(setResume.id);
-                sets.push(set);
+                // Strip circular references by selecting only the necessary fields
+                const safeSet = {
+                    id: set.id,
+                    name: set.name,
+                    releaseDate: set.releaseDate,
+                    cardCount: set.cardCount,
+                    logo: set.logo,
+                    serie: set.serie,
+                    cards: set.cards?.map(card => ({
+                        id: card.id,
+                        name: card.name,
+                        number: card.number,
+                        rarity: card.rarity,
+                        types: card.types,
+                        hp: card.hp
+                    }))
+                };
+                sets.push(safeSet);
             } catch (error) {
                 console.error(`Error fetching set ${setResume.id}:`, error);
             }
