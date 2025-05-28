@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigationEnd, Router, RouterModule} from '@angular/router';
-import {CommonModule} from "@angular/common";
+import {CommonModule, ViewportScroller} from "@angular/common";
 import {MenuItem} from "primeng/api";
 import {Avatar} from "primeng/avatar";
 import {Menubar} from "primeng/menubar";
@@ -18,7 +18,7 @@ export class LayoutComponent implements OnInit {
     allItems: (MenuItem & { show?: boolean })[] = [];
     items: MenuItem[] = [];
 
-    constructor(private router: Router) {
+    constructor(private router: Router, private viewportScroller: ViewportScroller) {
     }
 
     ngOnInit() {
@@ -37,6 +37,7 @@ export class LayoutComponent implements OnInit {
             filter(event => event instanceof NavigationEnd)
         ).subscribe(() => {
             this.updateSelectedItemLabel();
+            this.viewportScroller.scrollToPosition([0, 0]);
         });
     }
 
