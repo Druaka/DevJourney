@@ -24,7 +24,7 @@
 
     <ng-template #grid let-items>
         <div class="justify-content-center grid grid-nogutter">
-            <div *ngFor="let set of items" class="select-none hover-effect p-2" pRipple>
+            <div *ngFor="let set of items" class="select-none hover-effect p-2" pRipple (click)="viewCards(set)">
                 <div class="flex justify-content-center bg-white-alpha-90 border-round w-10rem p-2">
                     <img class="fixed-size-logo" [src]="getLogoUrl(set)" [alt]="set.name"/>
                 </div>

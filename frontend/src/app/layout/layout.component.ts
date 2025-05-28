@@ -15,19 +15,23 @@ import {filter} from 'rxjs/operators';
 })
 export class LayoutComponent implements OnInit {
     selectedItemLabel: string = 'Dashboard';
+    allItems: (MenuItem & { show?: boolean })[] = [];
     items: MenuItem[] = [];
 
     constructor(private router: Router) {
     }
 
     ngOnInit() {
-        this.items = [
-            {label: 'Dashboard', icon: 'pi pi-home', routerLink: '/dashboard'},
-            {label: 'Journal', icon: 'pi pi-book', routerLink: '/journal'},
-            {label: 'ptcg-sets', icon: 'pi pi-book', routerLink: '/ptcg-sets'},
-            {label: 'tcgp-sets', icon: 'pi pi-book', routerLink: '/tcgp-sets'},
+        this.allItems = [
+            {label: 'Dashboard', icon: 'pi pi-home', routerLink: '/dashboard', show: true},
+            {label: 'Journal', icon: 'pi pi-book', routerLink: '/journal', show: true},
+            {label: 'PTCG Sets', icon: 'pi pi-book', routerLink: '/ptcg-sets', show: true},
+            {label: 'TCGP Sets', icon: 'pi pi-book', routerLink: '/tcgp-sets', show: true},
+            {label: 'Cards', icon: 'pi pi-id-card', routerLink: '/cards', show: false},
             // Add more menu items as needed
         ];
+
+        this.items = this.allItems.filter(item => item.show);
 
         this.router.events.pipe(
             filter(event => event instanceof NavigationEnd)
@@ -42,7 +46,7 @@ export class LayoutComponent implements OnInit {
 
     updateSelectedItemLabel() {
         const currentRoute = this.router.url;
-        const currentItem = this.items.find(item => item.routerLink === currentRoute);
+        const currentItem = this.allItems.find(item => item.routerLink === currentRoute);
         this.selectedItemLabel = currentItem?.label ?? 'Dashboard';
     }
 }

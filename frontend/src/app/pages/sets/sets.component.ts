@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {TcgdexService} from '@app/services/tcgdex.service';
 import {CommonModule} from "@angular/common";
 import {Panel} from "primeng/panel";
@@ -37,7 +37,7 @@ export class SetsComponent implements OnInit {
     sortOrder: number = -1;
     searchTerm: string = '';
 
-    constructor(private tcgdexService: TcgdexService, private route: ActivatedRoute) {
+    constructor(private tcgdexService: TcgdexService, private route: ActivatedRoute, private router: Router) {
     }
 
     ngOnInit(): void {
@@ -106,15 +106,8 @@ export class SetsComponent implements OnInit {
         return url;
     }
 
-    getHighCardUrl(set: any): string {
-        let logo = set.logo;
-        let url = !logo ? 'na.png' : logo + '.high.webp';
-        return url;
-    }
-
-    getLowCardUrl(set: any): string {
-        let logo = set.logo;
-        let url = !logo ? 'na.png' : logo + '.low.webp';
-        return url;
+    viewCards(set: any) {
+        this.tcgdexService.setCards(set.cards);
+        this.router.navigate(['/cards']);
     }
 }

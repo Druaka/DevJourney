@@ -8,46 +8,37 @@ import {InputGroupAddon} from "primeng/inputgroupaddon";
 import {InputText} from "primeng/inputtext";
 import {NgForOf, NgIf} from "@angular/common";
 import {Ripple} from "primeng/ripple";
-import {Tag} from "primeng/tag";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {TcgdexService} from "@app/services/tcgdex.service";
 
 @Component({
     selector: 'app-cards',
     templateUrl: './cards.component.html',
     styleUrl: './cards.component.scss',
     standalone: true,
-    imports: [Button, DataView, DropdownModule, FormsModule, InputGroup, InputGroupAddon, InputText, NgForOf, NgIf, Ripple, Tag]
+    imports: [Button, DataView, DropdownModule, FormsModule, InputGroup, InputGroupAddon, InputText, NgForOf, NgIf, Ripple]
 })
 export class CardsComponent implements OnInit {
     cards: any[] = [];
     layout: 'grid' | 'list' = 'grid';
     sortOptions: { label: string, value: string }[] = [
-        {label: '📅', value: 'releaseDate'},
+        {label: '🔢', value: 'localId'},
         {label: '🆎', value: 'name'}
     ];
-    sortKey: string = 'releaseDate';
-    sortOrder: number = -1;
+    sortKey: string = 'localId';
+    sortOrder: number = 1;
     searchTerm: string = '';
 
-    constructor(private route: ActivatedRoute) {
+    constructor(private tcgdexService: TcgdexService, private route: ActivatedRoute, private router: Router) {
     }
 
     ngOnInit(): void {
-        this.route.url.subscribe(url => {
-            const currentRoute = url[0].path;
-            // TODO use route to get correct card list
-            // if (currentRoute === 'ptcg-sets') {
-            //     this.tcgdexService.fetchPtcgSets().subscribe(data => {
-            //         this.sets = data;
-            //         this.sortSets();
-            //     });
-            // } else if (currentRoute === 'tcgp-sets') {
-            //     this.tcgdexService.fetchTcgpSets().subscribe(data => {
-            //         this.sets = data;
-            //         this.sortSets();
-            //     });
-            // }
-        });
+        this.cards = this.tcgdexService.getCards();
+        if (!this.cards || this.cards.length === 0) {
+            this.router.navigate(['/']);
+            return;
+        }
+        this.sortCards();
     }
 
     cardSortOrder(order: number) {
@@ -59,10 +50,6 @@ export class CardsComponent implements OnInit {
         this.cards.sort((a, b) => {
             let value1 = a[this.sortKey];
             let value2 = b[this.sortKey];
-            if (this.sortKey === 'releaseDate') {
-                value1 = new Date(value1).getTime();
-                value2 = new Date(value2).getTime();
-            }
             return (value1 < value2 ? -1 : (value1 > value2 ? 1 : 0)) * this.sortOrder;
         });
     }
@@ -75,39 +62,9 @@ export class CardsComponent implements OnInit {
         this.searchTerm = '';
     }
 
-    getLogoUrl(card: any): string {
-        let logo = card.logo;
-        let name = card.name;
-        let url: string;
-        if (logo) {
-            url = logo + '.webp';
-        } else if (name.toLowerCase().includes("black star promo")) {
-            url = 'ptcg/blackstar.png';
-        } else if (name.toLowerCase().includes("dragon majesty")) {
-            url = 'ptcg/dragon-majesty.png';
-        } else if (name.toLowerCase().includes("macdonald")) {
-            url = 'ptcg/mcdonald.png';
-        } else if (name.toLowerCase().includes("shining legends")) {
-            url = 'ptcg/shining-legends.png';
-        } else if (name.toLowerCase().includes("temporal forces")) {
-            url = 'ptcg/temporal-forces.png';
-        } else if (name.toLowerCase().includes("trainer kit")) {
-            url = 'ptcg/trainer-kit.png';
-        } else {
-            url = 'ptcg/na.png';
-        }
-        return url;
-    }
-
     getHighCardUrl(card: any): string {
-        let logo = card.logo;
-        let url = !logo ? 'na.png' : logo + '.high.webp';
-        return url;
-    }
-
-    getLowCardUrl(card: any): string {
-        let logo = card.logo;
-        let url = !logo ? 'na.png' : logo + '.low.webp';
+        let image = card.image;
+        let url = !image ? 'na.png' : image + '/high.webp';
         return url;
     }
 }

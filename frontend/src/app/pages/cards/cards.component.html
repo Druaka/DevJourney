@@ -19,16 +19,9 @@
     <ng-template #grid let-items>
         <div class="justify-content-center grid grid-nogutter">
             <div *ngFor="let card of items" class="select-none hover-effect p-2" pRipple>
-                <div class="flex justify-content-center bg-white-alpha-90 border-round w-10rem p-2">
-                    <img class="fixed-size-logo" [src]="getLogoUrl(card)" [alt]="card.name"/>
+                <div class="flex justify-content-center bg-white-alpha-90 border-round w-10rem p-0">
+                    <img class="fixed-size-image" [src]="getHighCardUrl(card)" [alt]="card.name"/>
                 </div>
-                <p-tag [severity]="'secondary'" class="h-5rem w-10rem p-2">
-                    <div class="flex flex-column align-items-center pl-1 text-xs text-center">
-                        <span>{{ card.cardCount.total }} cards</span>
-                        <span>{{ card.releaseDate }}</span>
-                        <span>{{ card.name }}</span>
-                    </div>
-                </p-tag>
             </div>
         </div>
     </ng-template>

@@ -5,6 +5,8 @@ import {environment} from '@env/environment';
 
 @Injectable({providedIn: 'root'})
 export class TcgdexService {
+    private cards: any[] = [];
+
     constructor(private http: HttpClient) {
     }
 
@@ -26,5 +28,13 @@ export class TcgdexService {
             });
         }
         return this.http.get(`${environment.apiUrl}/tcgdex/tcgp-sets`, {params: httpParams});
+    }
+
+    setCards(cards: any[]): void {
+        this.cards = cards;
+    }
+
+    getCards(): any[] {
+        return this.cards;
     }
 }
