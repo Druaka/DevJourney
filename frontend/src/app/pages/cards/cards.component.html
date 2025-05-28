@@ -1,0 +1,28 @@
+<p-dataView #dv [value]="filteredCards()" [layout]="layout">
+    <ng-template #header>
+        <div class="flex justify-content-center align-items-center pl-2 pr-2 md:pl-4 md:pr-4">
+            <p-inputgroup class="mr-1">
+                <p-inputgroup-addon>
+                    <i class="pi pi-search"></i>
+                </p-inputgroup-addon>
+                <input placeholder="Search..." pInputText [(ngModel)]="searchTerm"/>
+                <p-inputgroup-addon *ngIf="searchTerm">
+                    <i class="pi pi-times p-button-text" (click)="clearSearch()"></i>
+                </p-inputgroup-addon>
+            </p-inputgroup>
+            <p-dropdown [options]="sortOptions" (onChange)="sortCards()" [(ngModel)]="sortKey" class="mr-1"/>
+            <p-button *ngIf="sortOrder === -1" icon="pi pi-sort-amount-down" (onClick)="cardSortOrder(1)" class="mr-1"/>
+            <p-button *ngIf="sortOrder === 1" icon="pi pi-sort-amount-up" (onClick)="cardSortOrder(-1)"/>
+        </div>
+    </ng-template>
+
+    <ng-template #grid let-items>
+        <div class="justify-content-center grid grid-nogutter">
+            <div *ngFor="let card of items" class="select-none hover-effect p-2" pRipple>
+                <div class="flex justify-content-center bg-white-alpha-90 border-round w-10rem p-0">
+                    <img class="fixed-size-image" [src]="getHighCardUrl(card)" [alt]="card.name"/>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-dataView>

@@ -76,10 +76,8 @@ async function fetchSetDetails(setResumes) {
                     cards: set.cards?.map(card => ({
                         id: card.id,
                         name: card.name,
-                        number: card.number,
-                        rarity: card.rarity,
-                        types: card.types,
-                        hp: card.hp
+                        image: card.image,
+                        localId: card.localId
                     }))
                 };
                 sets.push(safeSet);
