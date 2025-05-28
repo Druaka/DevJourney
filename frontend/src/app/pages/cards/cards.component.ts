@@ -64,7 +64,7 @@ export class CardsComponent implements OnInit {
 
     getHighCardUrl(card: any): string {
         let image = card.image;
-        let url = !image ? 'na.png' : image + '/high.webp';
+        let url = !image ? 'ptcg/poke-cardback.png' : image + '/high.webp';
         return url;
     }
 }
