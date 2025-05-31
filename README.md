@@ -52,7 +52,7 @@ From the project root:
 npm run install:all
 ```
 
-2. Start both apps locally (concurrently):
+2. Start both apps concurrently:
 
 ```bash
 npm start
