@@ -12,6 +12,7 @@ import {PingService} from '@app/services/ping.service';
 })
 export class JournalComponent implements OnInit {
     backendMessage: string = 'Loading...';
+    isLoading: boolean = true;
 
     constructor(private pingService: PingService) {
     }
@@ -20,9 +21,11 @@ export class JournalComponent implements OnInit {
         this.pingService.ping().subscribe({
             next: (res) => {
                 this.backendMessage = res.message;
+                this.isLoading = false;
             },
             error: (err) => {
                 this.backendMessage = 'Error contacting backend.';
+                this.isLoading = false;
                 console.error(err);
             }
         });
