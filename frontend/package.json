@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build:gifs": "node src/assets-builder/build-gifs.js",
+    "build": "npm run build:gifs && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "deploy": "ng deploy --base-href=/devjourney/ --repo=https://github.com/Druaka/devjourney.git --name='github-actions' --email='actions@github.com' --no-silent"
@@ -21,6 +22,8 @@
     "@angular/router": "^19.2.5",
     "@primeng/themes": "^19.0.10",
     "devjourney-monorepo": "file:..",
+    "gif-encoder-2": "^1.0.5",
+    "jimp": "^0.16.13",
     "primeflex": "^4.0.0",
     "primeicons": "^7.0.0",
     "primeng": "^19.0.10",
