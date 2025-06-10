@@ -1,4 +1,9 @@
 <p-card header="Journal">
     <p>Journal — Welcome to your Genesis-inspired layout using free PrimeNG!</p>
     <p>Backend says: {{ backendMessage }}</p>
+
+    <div class="gif-container">
+        <img *ngIf="isLoading" src="loading.gif" alt="Loading..."/>
+        <img *ngIf="!isLoading" src="ready.gif" alt="Ready!"/>
+    </div>
 </p-card>
