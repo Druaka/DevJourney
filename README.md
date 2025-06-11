@@ -2,7 +2,7 @@
 
 Welcome to DevJourney — a MEAN stack project designed to track my growth, explore new ideas and document my development progress. This space serves as both a learning tracker and a hands-on playground for experimenting with full-stack concepts.
 
-Click the badge below to visit the live GitHub page:
+Click the badge below to visit the GitHub page:
 
 [![GitHub Page](https://img.shields.io/github/deployments/Druaka/devjourney/github-pages?label=GitHub%20Page)](https://druaka.github.io/devjourney/)
 
