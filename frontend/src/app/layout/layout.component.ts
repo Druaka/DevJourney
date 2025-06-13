@@ -5,20 +5,24 @@ import {MenuItem} from "primeng/api";
 import {Avatar} from "primeng/avatar";
 import {Menubar} from "primeng/menubar";
 import {filter} from 'rxjs/operators';
+import {PingService} from "@app/services/ping.service";
+import {Tag} from "primeng/tag";
 
 @Component({
     standalone: true,
     selector: 'app-layout',
     templateUrl: './layout.component.html',
     styleUrls: ['./layout.component.scss'],
-    imports: [CommonModule, RouterModule, Avatar, Menubar]
+    imports: [CommonModule, RouterModule, Menubar, Avatar, Tag]
 })
 export class LayoutComponent implements OnInit {
+    statusMsg: string = 'HIBERNATING';
+    statusImg: string = 'loading.gif';
     selectedItemLabel: string = 'Dashboard';
     allItems: (MenuItem & { show?: boolean })[] = [];
     items: MenuItem[] = [];
 
-    constructor(private router: Router, private viewportScroller: ViewportScroller) {
+    constructor(private router: Router, private viewportScroller: ViewportScroller, private pingService: PingService) {
     }
 
     ngOnInit() {
@@ -38,6 +42,18 @@ export class LayoutComponent implements OnInit {
         ).subscribe(() => {
             this.updateSelectedItemLabel();
             this.viewportScroller.scrollToPosition([0, 0]);
+        });
+
+        this.pingService.ping().subscribe({
+            next: (res) => {
+                this.statusMsg = 'READY';
+                this.statusImg = 'ready.gif';
+            },
+            error: (err) => {
+                this.statusMsg = 'ERROR';
+                this.statusImg = 'error.gif';
+                console.error(err);
+            }
         });
     }
 
