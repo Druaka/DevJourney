@@ -13,9 +13,12 @@
     </ng-template>
 
     <ng-template #end>
-        <div class="flex items-center gap-2">
-            <p-avatar class="pi pi-user" shape="circle"/>
-        </div>
+        <p-tag [severity]="'secondary'" class="p-0">
+            <div class="flex flex-column align-items-center text-xs text-center">
+                <p-avatar class="pi rounded-avatar" shape="circle" image="{{statusImg}}"/>
+                <span class="pt-1 status-msg">{{ statusMsg }}</span>
+            </div>
+        </p-tag>
     </ng-template>
 </p-menubar>
 
