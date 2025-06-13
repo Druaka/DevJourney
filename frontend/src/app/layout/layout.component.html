@@ -1,10 +1,4 @@
 <p-menubar [model]="items">
-    <ng-template #start>
-        <div class="flex items-center p-2">
-            <span class="font-bold text-lg">{{ selectedItemLabel }}</span>
-        </div>
-    </ng-template>
-
     <ng-template #item let-item let-root="root">
         <a pRipple [routerLink]="item.routerLink" (click)="onItemSelect(item)"
            class="flex items-center p-menubar-item-link">
@@ -13,10 +7,11 @@
     </ng-template>
 
     <ng-template #end>
-        <p-tag [severity]="'secondary'" class="p-0">
+        <span class="font-bold text-lg pr-2">{{ selectedItemLabel }}</span>
+        <p-tag [severity]="'secondary'" class="gap-0">
             <div class="flex flex-column align-items-center text-xs text-center">
                 <p-avatar class="pi rounded-avatar" shape="circle" image="{{statusImg}}"/>
-                <span class="pt-1 status-msg">{{ statusMsg }}</span>
+                <span class="pt-1 status-msg">BACKEND<br/>{{ statusMsg }}</span>
             </div>
         </p-tag>
     </ng-template>

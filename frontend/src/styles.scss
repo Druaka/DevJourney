@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  font-family: var(--font-family);
+  font-family: var(--font-family), serif;
   background-color: #f9f9f9;
 }
 
@@ -12,4 +12,8 @@ body {
     background-color: rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   }
+}
+
+.p-menubar {
+  padding: 10px 8px 10px 8px !important;
 }
