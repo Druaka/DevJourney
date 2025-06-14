@@ -1,7 +1,7 @@
-import Lara from "@primeng/themes/lara";
 import {definePreset} from "@primeng/themes";
+import Lara from "@primeng/themes/lara";
 
-export const MyPreset = definePreset(Lara, {
+export const Noir = definePreset(Lara, {
     primitive: {
         borderRadius: {
             none: "0",
@@ -665,7 +665,7 @@ export const MyPreset = definePreset(Lara, {
 });
 
 export default {
-    preset: MyPreset,
+    preset: Noir,
     options: {
         darkModeSelector: '.p-dark'
     }

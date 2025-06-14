@@ -4,7 +4,7 @@ import {providePrimeNG} from 'primeng/config';
 import {provideRouter} from "@angular/router";
 import {provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
 import {routes} from "@app/app.routes";
-import {MyPreset} from '@app/app.theme';
+import {Noir} from '@app/app.theme';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -16,12 +16,8 @@ export const appConfig: ApplicationConfig = {
         providePrimeNG({
             ripple: true,
             theme: {
-                preset: MyPreset,
-                options: {
-                    prefix: 'p',
-                    darkModeSelector: 'system',
-                    cssLayer: false
-                }
+                preset: Noir,
+                options: {darkModeSelector: '.p-dark'}
             }
         })
     ]
