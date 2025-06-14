@@ -17,6 +17,11 @@ export const appConfig: ApplicationConfig = {
             ripple: true,
             theme: {
                 preset: MyPreset,
+                options: {
+                    prefix: 'p',
+                    darkModeSelector: 'system',
+                    cssLayer: false
+                }
             }
         })
     ]

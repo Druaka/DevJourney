@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import { MyPreset } from '@app/app.theme';
 import {NavigationEnd, Router, RouterModule} from '@angular/router';
 import {CommonModule, ViewportScroller} from "@angular/common";
+import { inject } from '@angular/core';
 import {MenuItem} from "primeng/api";
 import {Avatar} from "primeng/avatar";
 import {Menubar} from "primeng/menubar";
@@ -16,6 +18,7 @@ import {Tag} from "primeng/tag";
     imports: [CommonModule, RouterModule, Menubar, Avatar, Tag]
 })
 export class LayoutComponent implements OnInit {
+    darkTheme = true;
     statusMsg: string = 'HIBERNATING';
     statusImg: string = 'loading.gif';
     selectedItemLabel: string = 'Dashboard';
@@ -26,6 +29,12 @@ export class LayoutComponent implements OnInit {
     }
 
     ngOnInit() {
+        const savedTheme = localStorage.getItem('darkTheme') === 'true';
+        this.darkTheme = savedTheme;
+
+        const el = document.body;
+        el.classList.toggle('dark', this.darkTheme);
+
         this.allItems = [
             {label: 'Dashboard', icon: 'pi pi-home', routerLink: '/dashboard', show: true},
             {label: 'Journal', icon: 'pi pi-book', routerLink: '/journal', show: true},
@@ -65,5 +74,12 @@ export class LayoutComponent implements OnInit {
         const currentRoute = this.router.url;
         const currentItem = this.allItems.find(item => item.routerLink === currentRoute);
         this.selectedItemLabel = currentItem?.label ?? 'Dashboard';
+    }
+
+    toggleDarkMode(): void {
+        const element = document.body;
+        if (element) {
+          element.classList.toggle('my-app-dark', this.darkTheme);
+        }
     }
 }
