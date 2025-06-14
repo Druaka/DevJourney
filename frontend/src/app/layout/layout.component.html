@@ -6,15 +6,15 @@
         </a>
     </ng-template>
 
-    <ng-template #end class="p-menubar-end">
-        <div class="select-none flex-col align-items-center p-1 gap-1">
+    <ng-template #end>
+        <div class="select-none flex-col p-1 gap-1">
             <div class="font-bold text-lg">{{ selectedItemLabel }}</div>
             <div class="status-msg">BACKEND {{ statusMsg }}</div>
         </div>
-        <p-tag [severity]="'secondary'" class="select-none p-1 gap-0 align-items-center">
+        <p-tag [severity]="'secondary'" class="select-none p-1 gap-0">
             <p-avatar class="pi rounded-avatar" shape="circle" image="{{statusImg}}"/>
         </p-tag>
-        <p-tag [severity]="'secondary'" class="select-none p-1 gap-0 align-items-center">
+        <p-tag [severity]="'secondary'" class="select-none p-1 gap-0">
             <a pRipple (click)="toggleDarkMode()">
                 <p-avatar shape="circle" class="pi" [ngClass]="{ 'pi-moon': !darkTheme, 'pi-sun': darkTheme }"/>
             </a>
