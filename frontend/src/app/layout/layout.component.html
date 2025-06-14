@@ -7,15 +7,17 @@
     </ng-template>
 
     <ng-template #end>
-        <span class="font-bold text-lg pr-2">{{ selectedItemLabel }}</span>
-        <button type="button" (click)="toggleDarkMode()" style="padding-top: 2px;">
-            <i class="pi" [ngClass]="{ 'pi-moon': !darkTheme, 'pi-sun': darkTheme }" style="font-size: 1.2rem;"></i>
-        </button>
-        <p-tag [severity]="'secondary'" class="gap-0">
-            <div class="flex flex-column align-items-center text-xs text-center">
-                <p-avatar class="pi rounded-avatar" shape="circle" image="{{statusImg}}"/>
-                <span class="pt-1 status-msg">BACKEND<br/>{{ statusMsg }}</span>
-            </div>
+        <div class="select-none flex-col p-1 gap-1">
+            <div class="font-bold text-lg">{{ selectedItemLabel }}</div>
+            <div class="status-msg">BACKEND {{ statusMsg }}</div>
+        </div>
+        <p-tag [severity]="'secondary'" class="select-none p-1 gap-0">
+            <p-avatar class="pi rounded-avatar" shape="circle" image="{{statusImg}}"/>
+        </p-tag>
+        <p-tag [severity]="'secondary'" class="select-none p-1 gap-0">
+            <a pRipple (click)="toggleDarkMode()">
+                <p-avatar shape="circle" class="pi" [ngClass]="{ 'pi-moon': !darkTheme, 'pi-sun': darkTheme }"/>
+            </a>
         </p-tag>
     </ng-template>
 </p-menubar>

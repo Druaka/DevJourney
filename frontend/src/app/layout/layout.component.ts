@@ -73,10 +73,6 @@ export class LayoutComponent implements OnInit {
 
     toggleDarkMode(): void {
         this.darkTheme = !this.darkTheme;
-        if (this.darkTheme) {
-            this.document.documentElement.classList.add('p-dark');
-        } else {
-            this.document.documentElement.classList.remove('p-dark');
-        }
+        this.document.documentElement.classList.toggle('p-dark', this.darkTheme);
     }
 }
