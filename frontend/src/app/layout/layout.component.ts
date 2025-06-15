@@ -20,6 +20,7 @@ export class LayoutComponent implements OnInit {
     darkTheme = true;
     statusMsg: string = 'HIBERNATING';
     statusImg: string = 'loading.gif';
+    statusIcon: string = 'pi-spin pi-spinner-dotted';
     selectedItemLabel: string = 'Dashboard';
     allItems: (MenuItem & { show?: boolean })[] = [];
     items: MenuItem[] = [];
@@ -52,10 +53,12 @@ export class LayoutComponent implements OnInit {
             next: (res) => {
                 this.statusMsg = 'READY';
                 this.statusImg = 'ready.gif';
+                this.statusIcon = 'pi-check-circle';
             },
             error: (err) => {
                 this.statusMsg = 'ERROR';
                 this.statusImg = 'error.gif';
+                this.statusIcon = 'pi-exclamation-circle';
                 console.error(err);
             }
         });
