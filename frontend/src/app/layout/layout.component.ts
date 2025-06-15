@@ -29,7 +29,9 @@ export class LayoutComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.darkTheme = document.documentElement.classList.contains('p-dark');
+        const storedTheme = localStorage.getItem('darkTheme');
+        this.darkTheme = storedTheme === 'true';
+        this.document.documentElement.classList.toggle('p-dark', this.darkTheme);
 
         this.allItems = [
             {label: 'Dashboard', icon: 'pi pi-home', routerLink: '/dashboard', show: true},
@@ -77,5 +79,6 @@ export class LayoutComponent implements OnInit {
     toggleDarkMode(): void {
         this.darkTheme = !this.darkTheme;
         this.document.documentElement.classList.toggle('p-dark', this.darkTheme);
+        localStorage.setItem('darkTheme', this.darkTheme.toString());
     }
 }
