@@ -1,5 +1,5 @@
 <p-menubar [model]="items" breakpoint="720px"
-           [style]="{ 'border-radius': '6px', 'border': '1px solid var(--p-dataview-header-border-color)' }">
+           [style]="{ 'border-radius': '6px', 'border': '1px solid var(--p-surface-200)' }">
     <ng-template #item let-item let-root="root">
         <a pRipple [routerLink]="item.routerLink" (click)="onItemSelect(item)"
            class="flex items-center p-menubar-item-link">
@@ -32,6 +32,6 @@
     <router-outlet></router-outlet>
 </div>
 
-<footer class="p-4 surface-50 text-color" style="border: 1px solid var(--p-dataview-header-border-color);border-radius: 6px;">
+<footer class="p-4 surface-50 text-color" style="border: 1px solid var(--p-surface-200);border-radius: 6px;">
     <span class="font-bold text-lg">Footer</span>
 </footer>
