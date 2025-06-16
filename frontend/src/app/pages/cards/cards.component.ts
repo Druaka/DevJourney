@@ -10,16 +10,18 @@ import {NgForOf, NgIf} from "@angular/common";
 import {Ripple} from "primeng/ripple";
 import {ActivatedRoute, Router} from "@angular/router";
 import {TcgdexService} from "@app/services/tcgdex.service";
+import {Skeleton} from "primeng/skeleton";
 
 @Component({
     selector: 'app-cards',
     templateUrl: './cards.component.html',
     styleUrl: './cards.component.scss',
     standalone: true,
-    imports: [Button, DataView, DropdownModule, FormsModule, InputGroup, InputGroupAddon, InputText, NgForOf, NgIf, Ripple]
+    imports: [Button, DataView, DropdownModule, FormsModule, InputGroup, InputGroupAddon, InputText, NgForOf, NgIf, Ripple, Skeleton]
 })
 export class CardsComponent implements OnInit {
     cards: any[] = [];
+    loadingImages: { [key: string]: boolean } = {};
     layout: 'grid' | 'list' = 'grid';
     sortOptions: { label: string, value: string }[] = [
         {label: '🔢', value: 'localId'},
@@ -38,6 +40,11 @@ export class CardsComponent implements OnInit {
             this.router.navigate(['/']);
             return;
         }
+
+        this.cards.forEach(card => {
+            this.loadingImages[card.id] = true;
+        });
+
         this.sortCards();
     }
 
@@ -66,5 +73,9 @@ export class CardsComponent implements OnInit {
         let image = card.image;
         let url = !image ? 'ptcg/poke-cardback.png' : image + '/high.webp';
         return url;
+    }
+
+    onLoad(card: any) {
+        this.loadingImages[card.id] = false;
     }
 }

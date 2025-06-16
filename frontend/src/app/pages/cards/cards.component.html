@@ -20,7 +20,9 @@
         <div class="justify-content-center grid grid-nogutter">
             <div *ngFor="let card of items" class="select-none hover-effect p-2" pRipple>
                 <div class="flex justify-content-center bg-white-alpha-90 border-round w-10rem p-0">
-                    <img class="fixed-size-image" [src]="getHighCardUrl(card)" [alt]="card.name"/>
+                    <p-skeleton *ngIf="loadingImages[card.id]" width="10rem" height="220px"></p-skeleton>
+                    <img class="fixed-size-image fadein fade-in" [class.loaded]="!loadingImages[card.id]"
+                         [src]="getHighCardUrl(card)" (load)="onLoad(card)" [alt]="card.name"/>
                 </div>
             </div>
         </div>
