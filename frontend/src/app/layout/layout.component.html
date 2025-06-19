@@ -1,4 +1,4 @@
-<p-menubar [model]="items" breakpoint="720px"
+<p-menubar #menuBar [model]="items" breakpoint="720px"
            [style]="{ 'border-radius': '6px', 'border': '1px solid var(--p-content-border-color)' }">
     <ng-template #item let-item let-root="root">
         <a pRipple [routerLink]="item.routerLink" (click)="onItemSelect(item)"
