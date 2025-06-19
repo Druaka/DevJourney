@@ -36,8 +36,14 @@ export class LayoutComponent implements OnInit {
         const menuButton = this.menuBar.menubutton?.nativeElement as HTMLElement;
         const clickedMenuButton = menuButton?.contains(event.target as Node);
 
-        if (this.menuBar.mobileActive && !clickedMenuButton) {
-            menuButton?.click(); // Simulate click only if the user didn't click the menu button
+        // Check if the click was inside a menubar item
+        const menuItems = this.menuBar.el?.nativeElement.querySelectorAll('.p-menubar-item');
+        const clickedInsideMenuItem = Array.from(menuItems ?? []).some(item =>
+            (item as HTMLElement).contains(event.target as Node)
+        );
+
+        if (!clickedInsideMenuItem && this.menuBar.mobileActive && !clickedMenuButton) {
+            menuButton?.click(); // Close menu if clicked outside menu items and menu button
         }
     }
 
@@ -49,10 +55,17 @@ export class LayoutComponent implements OnInit {
         this.allItems = [
             {label: 'Dashboard', icon: 'pi pi-home', routerLink: '/dashboard', show: true},
             {label: 'Journal', icon: 'pi pi-book', routerLink: '/journal', show: true},
-            {label: 'PTCG Sets', icon: 'pi pi-book', routerLink: '/ptcg-sets', show: true},
-            {label: 'TCGP Sets', icon: 'pi pi-book', routerLink: '/tcgp-sets', show: true},
-            {label: 'Cards', icon: 'pi pi-id-card', routerLink: '/cards', show: false},
-            // Add more menu items as needed
+            {
+                label: 'Pokémon',
+                icon: 'pi pi-folder',
+                parent: true,
+                show: true,
+                items: [
+                    {label: 'Pokémon TCG', icon: 'pi pi-book', routerLink: '/ptcg-sets'},
+                    {label: 'Pokémon TCG Pocket', icon: 'pi pi-book', routerLink: '/tcgp-sets'}
+                ]
+            },
+            {label: 'Cards', icon: 'pi pi-book', routerLink: '/cards', show: false}
         ];
 
         this.items = this.allItems.filter(item => item.show);
@@ -80,12 +93,22 @@ export class LayoutComponent implements OnInit {
     }
 
     onItemSelect(item: MenuItem) {
-        this.selectedItemLabel = item.label ?? 'Dashboard';
+        if (!item['parent']) {
+            this.selectedItemLabel = item.label ?? 'Dashboard';
+        }
     }
 
     updateSelectedItemLabel() {
         const currentRoute = this.router.url;
-        const currentItem = this.allItems.find(item => item.routerLink === currentRoute);
+        const findItem = (items: MenuItem[]): MenuItem | undefined =>
+            items.find(item =>
+                item.routerLink === currentRoute && !item['parent']
+            ) ?? items.flatMap(item => item.items ? [item.items] : [])
+                .flat()
+                .map(sub => findItem([sub]))
+                .find(Boolean);
+
+        const currentItem = findItem(this.allItems);
         this.selectedItemLabel = currentItem?.label ?? 'Dashboard';
     }
 
