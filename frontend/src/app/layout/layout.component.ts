@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, HostListener, inject, OnInit, ViewChild} from '@angular/core';
 import {CommonModule, DOCUMENT, ViewportScroller} from '@angular/common';
 import {NavigationEnd, Router, RouterModule} from '@angular/router';
 import {MenuItem} from "primeng/api";
@@ -16,6 +16,7 @@ import {Tag} from "primeng/tag";
     imports: [CommonModule, RouterModule, Menubar, Avatar, Tag]
 })
 export class LayoutComponent implements OnInit {
+    @ViewChild('menuBar') menuBar!: Menubar;
     document = inject(DOCUMENT);
     darkTheme = true;
     statusMsg: string = 'HIBERNATING';
@@ -26,6 +27,18 @@ export class LayoutComponent implements OnInit {
     items: MenuItem[] = [];
 
     constructor(private router: Router, private viewportScroller: ViewportScroller, private pingService: PingService) {
+    }
+
+    @HostListener('document:click', ['$event'])
+    onDocumentClick(event: MouseEvent): void {
+        if (!this.menuBar) return;
+
+        const menuButton = this.menuBar.menubutton?.nativeElement as HTMLElement;
+        const clickedMenuButton = menuButton?.contains(event.target as Node);
+
+        if (this.menuBar.mobileActive && !clickedMenuButton) {
+            menuButton?.click(); // Simulate click only if the user didn't click the menu button
+        }
     }
 
     ngOnInit() {
