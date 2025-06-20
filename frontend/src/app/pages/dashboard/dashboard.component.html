@@ -1,14 +1,40 @@
 <p-card class="select-none">
-    <p>Everything you see here is made possible thanks to <b class="rainbow_text_animated">free-tier</b> cloud
-        hosting—services that let you run apps and databases online for <b class="rainbow_text_animated">free</b>. It’s
-        a simple way to learn, test, and launch your ideas.</p>
-    <h4>Backend</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        et dolore magna aliqua.</p>
-    <h4>Database</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        et dolore magna aliqua.</p>
-    <h4>Frontend</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        et dolore magna aliqua.</p>
+    <p>
+        This <b class="rainbowfx">MEAN stack</b> web app is made possible thanks to <b class="rainbowfx">free-tier</b>
+        cloud hosting—services that let you run apps and databases online at no cost. It’s a simple way to learn, test,
+        and launch your ideas.
+        <a class="underline decoration-pink-500 after:content-['_↗']" href="http://google.com" target="_blank">
+            Pro Display XDR
+        </a>
+    </p>
+    <h4>🛠️ Backend</h4>
+    <p>
+
+        <app-link url="https://render.com" hexColor="#ec4899">Render</app-link>
+
+
+        Hosted on <a class="after:content-['_↗']" target="_blank"
+                     style="text-decoration-line: underline;text-decoration-color: var(--color-sky-500);"
+                     href="http://google.com">Render</a> (<b class="rainbowfx">free-tier</b>),
+        which automatically redeploys the backend whenever changes are pushed to the devjourney Git repository's backend
+        directory. Render spins down the backend after 15 minutes of inactivity to conserve resources. When a new
+        request comes in, the service spins back up—this can take up to a minute, causing a brief delay before the app
+        responds. Powered by <span class="font-semibold">Node.js</span> and <span class="font-semibold">Express</span>,
+        the backend exposes RESTful endpoints to serve Pokémon TCG data, fetched and processed using
+        <span class="font-semibold">TCGdex</span> (a dedicated Pokémon TCG API). The server begins listening for
+        requests only after the routes and database are successfully initialized.
+    </p>
+    <h4>🗄️ Database</h4>
+    <p>
+        Hosted on <span class="font-semibold rainbowfx">OVH MongoDB Discovery</span>. During backend startup, the server
+        connects to the database.
+        Once connected, it drops the existing database, fetches the latest Pokémon card sets via the TCGdex SDK,
+        sanitizes the data, stores it in MongoDB,
+        and caches it in memory for fast access.
+    </p>
+    <h4>🖼️ Frontend</h4>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+        et dolore magna aliqua.
+    </p>
 </p-card>
