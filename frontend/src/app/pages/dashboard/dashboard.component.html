@@ -3,24 +3,19 @@
         This <b class="rainbowfx">MEAN stack</b> web app is made possible thanks to <b class="rainbowfx">free-tier</b>
         cloud hosting—services that let you run apps and databases online at no cost. It’s a simple way to learn, test,
         and launch your ideas.
-        <a class="underline decoration-pink-500 after:content-['_↗']" href="http://google.com" target="_blank">
-            Pro Display XDR
-        </a>
     </p>
     <h4>🛠️ Backend</h4>
     <p>
-
-        <app-link url="https://render.com" hexColor="#ec4899">Render</app-link>
-
-
-        Hosted on <a class="after:content-['_↗']" target="_blank"
-                     style="text-decoration-line: underline;text-decoration-color: var(--color-sky-500);"
-                     href="http://google.com">Render</a> (<b class="rainbowfx">free-tier</b>),
-        which automatically redeploys the backend whenever changes are pushed to the devjourney Git repository's backend
-        directory. Render spins down the backend after 15 minutes of inactivity to conserve resources. When a new
-        request comes in, the service spins back up—this can take up to a minute, causing a brief delay before the app
-        responds. Powered by <span class="font-semibold">Node.js</span> and <span class="font-semibold">Express</span>,
-        the backend exposes RESTful endpoints to serve Pokémon TCG data, fetched and processed using
+        Hosted on
+        <app-link url="https://render.com" hexColor="#06b6d4">Render</app-link>
+        (<b class="rainbowfx">free-tier</b>),
+        which automatically redeploys the backend whenever changes are pushed to the
+        <code class="surface-200 px-1 rounded">devjourney</code> Git repository's backend directory.
+        <app-link url="https://render.com" hexColor="#06b6d4">Render</app-link>
+        spins down the backend after 15 minutes of inactivity to conserve resources. When a new request comes in, the
+        service spins back up—this can take up to a minute, causing a brief delay before the app responds. Powered by
+        <span class="font-semibold">Node.js</span> and <span class="font-semibold">Express</span>, the backend exposes
+        RESTful endpoints to serve Pokémon TCG data, fetched and processed using
         <span class="font-semibold">TCGdex</span> (a dedicated Pokémon TCG API). The server begins listening for
         requests only after the routes and database are successfully initialized.
     </p>
