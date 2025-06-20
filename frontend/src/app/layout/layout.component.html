@@ -9,7 +9,7 @@
 
     <ng-template #end>
         <div class="white-space-nowrap align-content-center select-none p-1 mr-1">
-            <div class="font-bold text-lg">{{ selectedItemLabel }}</div>
+            <div class="text-primary font-bold text-lg">{{ selectedItemLabel }}</div>
             <div class="status-msg">
                 <i style="font-size: 0.5rem" class="pi {{statusIcon}}"></i>&nbsp;
                 BACKEND&nbsp;
@@ -32,6 +32,6 @@
     <router-outlet></router-outlet>
 </div>
 
-<footer class="p-4 surface-50 text-color" style="border: 1px solid var(--p-content-border-color);border-radius: 6px;">
-    <span class="font-bold text-lg">Footer</span>
+<footer class="select-none p-4 surface-50 text-color" style="border: 1px solid var(--p-content-border-color);border-radius: 6px;">
+    <span class="text-color-secondary font-bold text-base">Footer</span>
 </footer>

@@ -1,9 +1,37 @@
 @use 'assets/lara-dark-indigo_theme.scss' as *;
+@use "tailwindcss" as *;
 
 body {
   margin: 0;
   font-family: var(--font-family), serif;
   background-color: #f9f9f9;
+}
+
+h4 {
+  margin: 8px 4px 8px 4px;
+  color: var(--p-text-muted-color);
+}
+
+p {
+  margin: 4px;
+  font-size: 11px;
+}
+
+@keyframes rainbow_animation {
+  0%, 100% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+}
+
+.rainbowfx {
+  background: linear-gradient(to right, #06b6d4, #0ea5e9, #3b82f6, #6366f1, #8b5cf6, #a855f7, #d946ef, #ec4899); // cyan, sky, blue, indigo, violet, purple, fuchsia, pink
+  background-clip: text;
+  color: transparent;
+  animation: rainbow_animation 6s ease-in-out infinite;
+  background-size: 400% 100%;
 }
 
 .hover-effect {
@@ -12,6 +40,10 @@ body {
     background-color: rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   }
+}
+
+.p-card-body {
+  padding: 1rem !important;
 }
 
 .p-menubar {
@@ -25,4 +57,8 @@ body {
 .p-skeleton {
   background: var(--p-surface-200) !important;
   --p-skeleton-animation-background: rgba(255, 255, 255, 0.5) !important;
+}
+
+.p-iconwrapper {
+  color: var(--p-primary-color);
 }
