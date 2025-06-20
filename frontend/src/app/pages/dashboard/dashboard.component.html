@@ -10,26 +10,41 @@
         <app-link url="https://render.com" hexColor="#06b6d4">Render’s</app-link>&nbsp;
         <b class="rainbowfx">free-tier</b>, the backend is automatically redeployed whenever changes are pushed to the
         <a target="_blank" href="https://github.com/Druaka/devjourney">
-            <code class="surface-200 px-1 rounded">devjourney</code>
-        </a> repository’s backend directory. Due to the limitations of the <b class="rainbowfx">free-tier</b>, the
-        service spins down after 15 minutes of inactivity. When a new request is made, it spins back up—this cold start
-        can take up to a minute, introducing a short delay before the app responds. Built with
-        <span class="font-semibold">Node.js</span> and <span class="font-semibold">Express</span>, the backend exposes
-        RESTful endpoints to serve Pokémon Trading Card Game (TCG) data, fetched and processed using
-        <span class="font-semibold">TCGdex</span>, an API dedicated to Pokémon TCG data. The server begins listening for
-        requests only after the routes and database are successfully initialized.
+            <code class="surface-300 px-1 rounded">devjourney</code>
+        </a> repository’s backend directory. Due to the
+        <a target="_blank" href="https://render.com/docs/free#free-web-services">
+            <code class="bg-red-400 px-1 rounded">limitations</code>
+        </a> of the <b class="rainbowfx">free-tier</b>, the service spins down after 15 minutes of inactivity. When a
+        new request is made, it spins back up—this cold start can take up to a minute, introducing a short delay before
+        the app responds. Built with
+        <app-link url="https://nodejs.org/" hexColor="#0ea5e9">Node.js</app-link>
+        and
+        <app-link url="https://expressjs.com/" hexColor="#3b82f6">Express</app-link>
+        , the backend exposes RESTful endpoints to serve Pokémon Trading Card Game (TCG) data, fetched and processed
+        using
+        <app-link url="https://tcgdex.dev/" hexColor="#6366f1">TCGdex</app-link>
+        , an API dedicated to Pokémon TCG data. The server begins listening for requests only after the routes and
+        database are successfully initialized.
     </p>
     <h4>🗄️ Database</h4>
     <p>
         Hosted on
-        <app-link url="https://render.com" hexColor="#ec4899">OVH MongoDB Discovery</app-link>
+        <app-link url="https://www.ovhcloud.com/en/lp/mongodb-discovery/" hexColor="#8b5cf6">OVHcloud MongoDB
+            Discovery
+        </app-link>
         . During backend startup, the server connects to the database. Once connected, it drops the existing database,
-        fetches the latest Pokémon card sets via the TCGdex SDK, sanitizes the data, stores it in MongoDB, and caches it
-        in memory for fast access.
+        fetches the latest Pokémon card sets via the TCGdex SDK, sanitizes the data, stores it in
+        <app-link url="http://mongodb.com/" hexColor="#a855f7">MongoDB</app-link>
+        , and caches it in memory for fast access.
     </p>
     <h4>🖼️ Frontend</h4>
     <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+        TODO —
+        <app-link url="https://angular.dev/" hexColor="#d946ef">Angular</app-link>
+        — Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
         et dolore magna aliqua.
     </p>
 </p-card>
+<!--
+#ec4899
+-->
