@@ -54,7 +54,7 @@ export class LayoutComponent implements OnInit {
 
         this.allItems = [
             {label: 'Dashboard', icon: 'pi pi-home', routerLink: '/dashboard', show: true},
-            {label: 'Journal', icon: 'pi pi-book', routerLink: '/journal', show: true},
+            // {label: 'Journal', icon: 'pi pi-book', routerLink: '/journal', show: true},
             {
                 label: 'Pokémon',
                 icon: 'pi pi-folder',
