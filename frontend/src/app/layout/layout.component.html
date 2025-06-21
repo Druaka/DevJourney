@@ -32,6 +32,9 @@
     <router-outlet></router-outlet>
 </div>
 
-<footer class="select-none p-4 surface-50 text-color" style="border: 1px solid var(--p-content-border-color);border-radius: 6px;">
-    <span class="text-color-secondary font-bold text-base">Footer</span>
+<footer [style]="{'border': '1px solid var(--p-content-border-color)','border-radius': '6px','text-align': 'right'}"
+        class="select-none p-2 surface-50 text-color">
+    <span class="text-color-secondary text-xs">&copy; Made by
+        <a href="https://github.com/Druaka" target="_blank" rel="noopener" class="text-primary">Druaka</a>
+    </span>
 </footer>
