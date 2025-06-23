@@ -18,5 +18,6 @@ export class DashboardComponent {
     tcgdexUrl: string = "https://tcgdex.dev/";
     mongodbDiscoveryUrl: string = "https://www.ovhcloud.com/en/lp/mongodb-discovery/";
     mongodbUrl: string = "http://mongodb.com/";
+    ghPagesUrl: string = "https://pages.github.com/";
     angularUrl: string = "https://angular.dev/";
 }
