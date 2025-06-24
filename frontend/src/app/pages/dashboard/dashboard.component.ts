@@ -20,4 +20,5 @@ export class DashboardComponent {
     mongodbUrl: string = "http://mongodb.com/";
     ghPagesUrl: string = "https://pages.github.com/";
     angularUrl: string = "https://angular.dev/";
+    primengUrl: string = "https://primeng.org/";
 }
