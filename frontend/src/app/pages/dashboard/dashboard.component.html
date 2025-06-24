@@ -11,7 +11,7 @@
         <b class="rainbowfx">free-tier</b>, the backend is automatically redeployed whenever changes are pushed to the
         <a target="_blank" href="https://github.com/Druaka/devjourney">
             <code class="surface-300 px-1 rounded">devjourney</code>
-        </a> repository’s backend directory. Due to the
+        </a> repository’s <span class="font-mono">backend</span> directory. Due to the
         <a target="_blank" href="https://render.com/docs/free#free-web-services">
             <code class="bg-red-400 px-1 rounded">limitations</code>
         </a> of the <b class="rainbowfx">free-tier</b>, the service spins down after 15 minutes of inactivity. When a
@@ -37,12 +37,17 @@
     </p>
     <h4>🖼️ Frontend</h4>
     <p>
-        TODO —
         Hosted on
         <app-link [url]="ghPagesUrl" hexColor="#d946ef">GitHub Pages</app-link>
-        Built with
+        , the frontend is built with
         <app-link [url]="angularUrl" hexColor="#ec4899">Angular</app-link>
-        — Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-        et dolore magna aliqua.
+        and
+        <app-link [url]="primengUrl" hexColor="#f43f5e">PrimeNG</app-link>
+        for a responsive and modern UI. The app is deployed via the <span class="font-mono">angular-cli-ghpages</span>
+        tool, using a GitHub Actions workflow that pushes the build to the <span class="font-mono">gh-pages</span>
+        branch of the
+        <a target="_blank" href="https://github.com/Druaka/devjourney">
+            <code class="surface-300 px-1 rounded">devjourney</code>
+        </a> repository.
     </p>
 </p-card>
