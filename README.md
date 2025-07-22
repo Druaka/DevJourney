@@ -22,11 +22,9 @@ This is an actively developing monorepo project with a live frontend, connected 
 ### What’s been accomplished so far:
 
 - ✅ Clean monorepo structure with shared scripts and npm orchestration
-- ✅ Angular frontend hosted on GitHub Pages
-- ✅ Node.js + Express backend deployed to Render free tier
-- ✅ GitHub Actions deploy workflow for Angular
-- ✅ Render auto-deploys backend on Git push to `devjourney/backend`
+- ✅ Node.js + Express backend deployed to Render with auto-deploys on Git push to `devjourney/backend`
 - ✅ MongoDB hosted via OVH Discovery
+- ✅ Angular frontend hosted on GitHub Pages with GitHub Actions deploy workflow
 - ✅ Essential web analytics via Cloudflare
 
 ---
