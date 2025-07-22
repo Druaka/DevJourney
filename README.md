@@ -27,6 +27,7 @@ This is an actively developing monorepo project with a live frontend, connected 
 - ✅ GitHub Actions deploy workflow for Angular
 - ✅ Render auto-deploys backend on Git push to `devjourney/backend`
 - ✅ MongoDB hosted via OVH Discovery
+- ✅ Essential web analytics via Cloudflare
 
 ---
 
