@@ -1,5 +1,13 @@
 ### MTG Edge of Eternities Sealed Archetypes Summary
 
+- 1 Mana: 1–2 cards
+- 2 Mana: 7–8 cards
+- 3 Mana: 5–6 cards
+- 4 Mana: 3–4 cards
+- 5 Mana: 2–3 cards
+- 6 Mana: 0–1 card
+- and 17 lands! 
+
 #### 🔵⚫ **UB Artifacts** *(Control / Value)*
 
 **Strengths**: Strong card advantage, recursion, artifact synergies, excellent removal. <br>
